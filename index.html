@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -174,18 +172,25 @@
 </head>
 <body class="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen">
     <!-- Login Screen -->
-    <div id="loginScreen" class="fixed inset-0 bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-3xl shadow-2xl p-12 max-w-md w-full mx-4 border-2 border-gray-100">
-            <div class="text-center mb-8">
-                <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg mx-auto mb-6">
-                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
+    <div id="loginScreen" class="fixed inset-0 bg-gradient-to-br from-green-50 to-blue-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg mx-auto border-2 border-gray-100 max-h-[95vh] overflow-y-auto">
+            <!-- Header fixo -->
+            <div class="sticky top-0 bg-white rounded-t-3xl p-6 pb-4 border-b border-gray-100">
+                <div class="text-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center shadow-lg mx-auto mb-4">
+                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">SerenaMente Pro</h1>
+                    <p class="text-base md:text-lg text-gray-600">Avaliação Profissional Completa</p>
                 </div>
-                <h1 class="text-3xl font-bold text-gray-800 mb-2">SerenaMente Pro</h1>
-                <p class="text-lg text-gray-600 mb-8">Avaliação Profissional Completa</p>
-                
-                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-8 text-left">
+            </div>
+
+            <!-- Conteúdo scrollável -->
+            <div class="p-6 pt-4">
+                <!-- Aviso de Segurança -->
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6 text-left rounded-r-lg">
                     <div class="flex">
                         <div class="flex-shrink-0">
                             <svg class="h-5 w-5 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
@@ -194,128 +199,185 @@
                         </div>
                         <div class="ml-3">
                             <p class="text-sm text-blue-700">
-                                <strong>Dados Privados e Seguros:</strong><br>
+                                <strong>🔒 Dados Privados e Seguros:</strong><br>
                                 Cada profissional tem acesso apenas aos seus próprios pacientes. 
-                                Seus dados ficam isolados e protegidos pela sua conta Google.
+                                Seus dados ficam isolados e protegidos com criptografia avançada.
                             </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="space-y-6">
-                <!-- Tabs de Login/Cadastro -->
-                <div class="flex mb-6 bg-gray-100 rounded-xl p-1">
-                    <button id="loginTab" class="flex-1 py-3 px-4 rounded-lg bg-white shadow-sm font-medium text-gray-700 transition-all">
-                        🔑 Fazer Login
-                    </button>
-                    <button id="registerTab" class="flex-1 py-3 px-4 rounded-lg font-medium text-gray-500 transition-all">
-                        📝 Cadastrar-se
-                    </button>
-                </div>
+                
+                <div class="space-y-6">
+                    <!-- Tabs de Login/Cadastro -->
+                    <div class="flex mb-6 bg-gray-100 rounded-xl p-1">
+                        <button id="loginTab" class="flex-1 py-3 px-2 md:px-4 rounded-lg bg-white shadow-sm font-medium text-gray-700 transition-all text-sm md:text-base">
+                            🔑 Login
+                        </button>
+                        <button id="registerTab" class="flex-1 py-3 px-2 md:px-4 rounded-lg font-medium text-gray-500 transition-all text-sm md:text-base">
+                            📝 Cadastro
+                        </button>
+                    </div>
 
-                <!-- Formulário de Login -->
-                <div id="loginForm" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Profissional</label>
-                        <input id="loginEmail" type="email" class="senior-friendly w-full" placeholder="seu.email@exemplo.com">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
-                        <div class="relative">
-                            <input id="loginPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Sua senha segura">
-                            <button type="button" id="toggleLoginPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                👁️
-                            </button>
+                    <!-- Formulário de Login -->
+                    <div id="loginForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">📧 Email Profissional</label>
+                            <input id="loginEmail" type="email" class="senior-friendly w-full" placeholder="seu.email@exemplo.com" autocomplete="email">
                         </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">🔐 Senha</label>
+                            <div class="relative">
+                                <input id="loginPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Sua senha segura" autocomplete="current-password">
+                                <button type="button" id="toggleLoginPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 text-xl">
+                                    👁️
+                                </button>
+                            </div>
+                        </div>
+                        <button id="emailLogin" class="large-button bg-blue-500 hover:bg-blue-600 text-white w-full">
+                            🔑 Entrar na Conta
+                        </button>
+                        <button type="button" id="forgotPassword" class="text-sm text-blue-600 hover:text-blue-800 w-full text-center py-2 hover:bg-blue-50 rounded-lg transition-colors">
+                            🔑 Esqueceu a senha? Clique aqui
+                        </button>
                     </div>
-                    <button id="emailLogin" class="large-button bg-blue-500 hover:bg-blue-600 text-white w-full">
-                        🔑 Entrar
-                    </button>
-                    <button type="button" id="forgotPassword" class="text-sm text-blue-600 hover:text-blue-800 w-full text-center">
-                        Esqueceu a senha?
-                    </button>
-                </div>
 
-                <!-- Formulário de Cadastro -->
-                <div id="registerForm" class="space-y-4 hidden">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
-                        <input id="registerName" type="text" class="senior-friendly w-full" placeholder="Seu Nome Completo">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Email Profissional</label>
-                        <input id="registerEmail" type="email" class="senior-friendly w-full" placeholder="seu.email@exemplo.com">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Profissão</label>
-                        <select id="registerProfession" class="senior-friendly w-full">
-                            <option value="">Selecione sua profissão...</option>
-                            <option value="psicologo">Psicólogo(a)</option>
-                            <option value="psicopedagogo">Psicopedagogo(a)</option>
-                            <option value="terapeuta-ocupacional">Terapeuta Ocupacional</option>
-                            <option value="fonoaudiologo">Fonoaudiólogo(a)</option>
-                            <option value="neurologista">Neurologista</option>
-                            <option value="psiquiatra">Psiquiatra</option>
-                            <option value="pedagogo">Pedagogo(a)</option>
-                            <option value="educador-especial">Educador Especial</option>
-                            <option value="outro">Outro</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Senha</label>
-                        <div class="relative">
-                            <input id="registerPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Mínimo 8 caracteres">
-                            <button type="button" id="toggleRegisterPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                👁️
+                    <!-- Formulário de Cadastro -->
+                    <div id="registerForm" class="space-y-4 hidden">
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">👤 Nome Completo *</label>
+                                <input id="registerName" type="text" class="senior-friendly w-full" placeholder="Digite seu nome completo" autocomplete="name" required>
+                                <p class="text-xs text-gray-500 mt-1">Exemplo: João Silva Santos</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">📧 Email Profissional *</label>
+                                <input id="registerEmail" type="email" class="senior-friendly w-full" placeholder="seu.email@exemplo.com" autocomplete="email" required>
+                                <p class="text-xs text-gray-500 mt-1">Use seu email profissional principal</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">🏥 Profissão *</label>
+                                <select id="registerProfession" class="senior-friendly w-full" required>
+                                    <option value="">Selecione sua profissão...</option>
+                                    <option value="psicologo">👨‍⚕️ Psicólogo(a)</option>
+                                    <option value="psicopedagogo">📚 Psicopedagogo(a)</option>
+                                    <option value="terapeuta-ocupacional">🤲 Terapeuta Ocupacional</option>
+                                    <option value="fonoaudiologo">🗣️ Fonoaudiólogo(a)</option>
+                                    <option value="neurologista">🧠 Neurologista</option>
+                                    <option value="psiquiatra">💊 Psiquiatra</option>
+                                    <option value="pedagogo">🎓 Pedagogo(a)</option>
+                                    <option value="educador-especial">🌟 Educador Especial</option>
+                                    <option value="assistente-social">🤝 Assistente Social</option>
+                                    <option value="fisioterapeuta">🏃‍♂️ Fisioterapeuta</option>
+                                    <option value="nutricionista">🥗 Nutricionista</option>
+                                    <option value="outro">🔧 Outro</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">📱 Telefone (Opcional)</label>
+                                <input id="registerPhone" type="tel" class="senior-friendly w-full" placeholder="(11) 99999-9999" autocomplete="tel">
+                                <p class="text-xs text-gray-500 mt-1">Para recuperação de conta</p>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">🏢 Instituição/Clínica (Opcional)</label>
+                                <input id="registerInstitution" type="text" class="senior-friendly w-full" placeholder="Nome da sua instituição" autocomplete="organization">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">🔐 Senha *</label>
+                                <div class="relative">
+                                    <input id="registerPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Mínimo 8 caracteres" autocomplete="new-password" required>
+                                    <button type="button" id="toggleRegisterPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 text-xl">
+                                        👁️
+                                    </button>
+                                </div>
+                                <div id="passwordStrength" class="mt-2 text-sm"></div>
+                                <div class="mt-2 text-xs text-gray-500">
+                                    <p>✅ Mínimo 8 caracteres</p>
+                                    <p>✅ Pelo menos 1 letra maiúscula</p>
+                                    <p>✅ Pelo menos 1 número</p>
+                                    <p>✅ Pelo menos 1 caractere especial</p>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">🔐 Confirmar Senha *</label>
+                                <div class="relative">
+                                    <input id="confirmPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Digite a senha novamente" autocomplete="new-password" required>
+                                    <button type="button" id="toggleConfirmPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 text-xl">
+                                        👁️
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                                <h4 class="font-semibold text-yellow-800 mb-2">🔒 Pergunta de Segurança</h4>
+                                <p class="text-sm text-yellow-700 mb-3">Para recuperação segura da senha</p>
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium text-yellow-800 mb-1">Pergunta *</label>
+                                        <select id="securityQuestion" class="senior-friendly w-full border-yellow-300" required>
+                                            <option value="">Escolha uma pergunta...</option>
+                                            <option value="pet">Qual o nome do seu primeiro animal de estimação?</option>
+                                            <option value="school">Qual o nome da sua primeira escola?</option>
+                                            <option value="city">Em que cidade você nasceu?</option>
+                                            <option value="mother">Qual o nome de solteira da sua mãe?</option>
+                                            <option value="book">Qual seu livro favorito?</option>
+                                            <option value="teacher">Qual o nome do seu professor favorito?</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div>
+                                        <label class="block text-sm font-medium text-yellow-800 mb-1">Resposta *</label>
+                                        <input id="securityAnswer" type="text" class="senior-friendly w-full border-yellow-300" placeholder="Sua resposta (será criptografada)" required>
+                                        <p class="text-xs text-yellow-600 mt-1">Lembre-se desta resposta para recuperar sua senha</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-3 bg-gray-50 p-4 rounded-lg">
+                                <input id="agreeTerms" type="checkbox" class="mt-1 w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500" required>
+                                <label for="agreeTerms" class="text-sm text-gray-700">
+                                    Concordo com os <a href="#" class="text-blue-600 hover:text-blue-800 underline">termos de uso</a> e 
+                                    <a href="#" class="text-blue-600 hover:text-blue-800 underline">política de privacidade</a>. 
+                                    Confirmo que sou um profissional da área da saúde/educação.
+                                </label>
+                            </div>
+                            
+                            <button id="registerUser" class="large-button bg-green-500 hover:bg-green-600 text-white w-full">
+                                ✅ Criar Conta
                             </button>
                         </div>
-                        <div id="passwordStrength" class="mt-2 text-sm"></div>
                     </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Confirmar Senha</label>
-                        <div class="relative">
-                            <input id="confirmPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Digite a senha novamente">
-                            <button type="button" id="toggleConfirmPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700">
-                                👁️
-                            </button>
+                    
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">ou</span>
                         </div>
                     </div>
-                    <div class="flex items-start space-x-3">
-                        <input id="agreeTerms" type="checkbox" class="mt-1 w-5 h-5 text-blue-600 border-2 border-gray-300 rounded focus:ring-blue-500">
-                        <label for="agreeTerms" class="text-sm text-gray-700">
-                            Concordo com os <a href="#" class="text-blue-600 hover:text-blue-800">termos de uso</a> e 
-                            <a href="#" class="text-blue-600 hover:text-blue-800">política de privacidade</a>
-                        </label>
+                    
+                    <!-- Demo Login -->
+                    <div class="text-center">
+                        <button id="demoLogin" class="large-button bg-green-500 hover:bg-green-600 text-white w-full">
+                            🚀 Entrar como Demo (Teste Grátis)
+                        </button>
+                        <p class="text-xs text-gray-500 mt-2">Perfeito para conhecer todas as funcionalidades</p>
                     </div>
-                    <button id="registerUser" class="large-button bg-green-500 hover:bg-green-600 text-white w-full">
-                        📧 Cadastrar e Enviar Confirmação
-                    </button>
                 </div>
                 
-                <div class="relative my-6">
-                    <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-500">ou</span>
-                    </div>
+                <div class="mt-8 text-center">
+                    <p class="text-xs text-gray-500">
+                        🔒 Seus dados são criptografados e mantidos seguros. 
+                        Ao usar o sistema, você concorda com nossos termos de uso e política de privacidade.
+                    </p>
                 </div>
-                
-                <!-- Demo Login -->
-                <div class="text-center">
-                    <button id="demoLogin" class="large-button bg-green-500 hover:bg-green-600 text-white w-full">
-                        🚀 Entrar como Demo
-                    </button>
-                    <p class="text-xs text-gray-500 mt-2">Perfeito para testar o sistema</p>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <p class="text-xs text-gray-500">
-                    Ao fazer login, você concorda com nossos termos de uso e política de privacidade.
-                    Seus dados são criptografados e mantidos seguros.
-                </p>
             </div>
         </div>
     </div>
@@ -759,168 +821,10 @@
                     </div>
                 </div>
 
-                <!-- Atenção -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">👁️ Sistemas Atencionais</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Atenção Sustentada</label>
-                            <select id="sustainedAttention" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Breve (< 2 minutos)</option>
-                                <option value="2">2 - Breve (2-5 minutos)</option>
-                                <option value="3">3 - Moderada (5-15 minutos)</option>
-                                <option value="4">4 - Boa (15-30 minutos)</option>
-                                <option value="5">5 - Excelente (> 30 minutos)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Atenção Seletiva</label>
-                            <select id="selectiveAttention" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Prejudicada (não filtra distrações)</option>
-                                <option value="2">2 - Prejudicada (muita distraibilidade)</option>
-                                <option value="3">3 - Moderada (filtra com esforço)</option>
-                                <option value="4">4 - Boa (filtragem adequada)</option>
-                                <option value="5">5 - Excelente (foco laser)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Atenção Dividida</label>
-                            <select id="dividedAttention" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Impossível (uma tarefa por vez)</option>
-                                <option value="2">2 - Muito Difícil (performance muito reduzida)</option>
-                                <option value="3">3 - Difícil (performance reduzida)</option>
-                                <option value="4">4 - Possível (leve redução)</option>
-                                <option value="5">5 - Eficiente (multitarefa eficaz)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Controle Atencional</label>
-                            <select id="attentionalControl" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Ausente (atenção errática)</option>
-                                <option value="2">2 - Limitado (pouco controle)</option>
-                                <option value="3">3 - Moderado (controle com apoio)</option>
-                                <option value="4">4 - Bom (controle voluntário)</option>
-                                <option value="5">5 - Excelente (controle estratégico)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Processamento -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">⚡ Velocidade de Processamento</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Processamento Visual</label>
-                            <select id="visualProcessing" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Lento (processamento laboriosa)</option>
-                                <option value="2">2 - Lento (demora para processar)</option>
-                                <option value="3">3 - Moderado (velocidade adequada)</option>
-                                <option value="4">4 - Rápido (processamento eficiente)</option>
-                                <option value="5">5 - Muito Rápido (processamento instantâneo)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Processamento Auditivo</label>
-                            <select id="auditoryProcessing" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Lento (não acompanha fala)</option>
-                                <option value="2">2 - Lento (perde informações)</option>
-                                <option value="3">3 - Moderado (acompanha com esforço)</option>
-                                <option value="4">4 - Rápido (acompanha bem)</option>
-                                <option value="5">5 - Muito Rápido (processa instantaneamente)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Raciocínio -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🔍 Raciocínio e Resolução de Problemas</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Raciocínio Lógico</label>
-                            <select id="logicalReasoning" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Limitado (pensamento concreto)</option>
-                                <option value="2">2 - Limitado (lógica simples)</option>
-                                <option value="3">3 - Moderado (lógica com apoio)</option>
-                                <option value="4">4 - Bom (raciocínio independente)</option>
-                                <option value="5">5 - Superior (raciocínio complexo)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Raciocínio Abstrato</label>
-                            <select id="abstractReasoning" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Ausente (apenas concreto)</option>
-                                <option value="2">2 - Emergente (abstração básica)</option>
-                                <option value="3">3 - Moderado (abstração com apoio)</option>
-                                <option value="4">4 - Desenvolvido (abstração independente)</option>
-                                <option value="5">5 - Avançado (abstração complexa)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Resolução de Problemas</label>
-                            <select id="problemSolving" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Limitada (não resolve problemas)</option>
-                                <option value="2">2 - Limitada (problemas muito simples)</option>
-                                <option value="3">3 - Moderada (problemas com apoio)</option>
-                                <option value="4">4 - Boa (resolve independentemente)</option>
-                                <option value="5">5 - Excelente (estratégias sofisticadas)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Pensamento Crítico</label>
-                            <select id="criticalThinking" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Ausente (aceita tudo)</option>
-                                <option value="2">2 - Emergente (questiona ocasionalmente)</option>
-                                <option value="3">3 - Moderado (analisa com apoio)</option>
-                                <option value="4">4 - Desenvolvido (análise independente)</option>
-                                <option value="5">5 - Avançado (análise sofisticada)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Observações Específicas -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📝 Observações Clínicas Específicas</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Estratégias Cognitivas Utilizadas</label>
-                            <textarea id="cognitiveStrategies" class="senior-friendly w-full h-24" placeholder="Descreva as estratégias cognitivas observadas, padrões de processamento, compensações utilizadas..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Fadiga Cognitiva</label>
-                            <textarea id="cognitiveFatigue" class="senior-friendly w-full h-24" placeholder="Observe sinais de fadiga, tempo até declínio, recuperação após pausas..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Recomendações Cognitivas</label>
-                            <textarea id="cognitiveRecommendations" class="senior-friendly w-full h-32" placeholder="Estratégias de intervenção, adaptações ambientais, técnicas de apoio cognitivo recomendadas..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Save Button -->
                 <div class="text-center">
                     <button id="saveCognitive" class="large-button bg-purple-500 hover:bg-purple-600 text-white px-12 focus-visible">
-                        🧠 Salvar Avaliação Cognitiva Completa
+                        🧠 Salvar Avaliação Cognitiva
                     </button>
                 </div>
             </div>
@@ -961,218 +865,13 @@
                                 <option value="5">5 - Avançadas (lidera interações)</option>
                             </select>
                         </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Comunicação Funcional</label>
-                            <select id="functionalCommunication" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Funcional (não comunica necessidades)</option>
-                                <option value="2">2 - Limitada (comunica necessidades básicas)</option>
-                                <option value="3">3 - Moderada (comunica com apoio)</option>
-                                <option value="4">4 - Funcional (comunica efetivamente)</option>
-                                <option value="5">5 - Avançada (comunicação complexa)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Autorregulação Emocional</label>
-                            <select id="emotionalRegulation" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Prejudicada (crises frequentes)</option>
-                                <option value="2">2 - Prejudicada (dificuldade significativa)</option>
-                                <option value="3">3 - Moderada (regula com apoio)</option>
-                                <option value="4">4 - Adequada (autorregulação eficaz)</option>
-                                <option value="5">5 - Excelente (modelo para outros)</option>
-                            </select>
-                        </div>
                     </div>
                 </div>
 
-                <!-- Comportamentos Desafiadores -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">⚠️ Comportamentos Desafiadores</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="agressao-fisica">
-                            👊 Agressão Física
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="agressao-verbal">
-                            🗣️ Agressão Verbal
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="autolesao">
-                            🤕 Autolesão
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="estereotipias">
-                            🔄 Estereotipias
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="fuga-esquiva">
-                            🏃 Fuga/Esquiva
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="birra-tantrum">
-                            😤 Birra/Tantrum
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="oposicao">
-                            🚫 Oposição
-                        </button>
-                        <button type="button" class="behavior-btn senior-friendly text-center bg-red-50 hover:bg-red-100" data-behavior="isolamento">
-                            🏠 Isolamento
-                        </button>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Frequência dos Comportamentos</label>
-                            <select id="behaviorFrequency" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="nunca">Nunca observado</option>
-                                <option value="raro">Raro (< 1x por semana)</option>
-                                <option value="ocasional">Ocasional (1-3x por semana)</option>
-                                <option value="frequente">Frequente (diário)</option>
-                                <option value="constante">Constante (múltiplas vezes ao dia)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Intensidade</label>
-                            <select id="behaviorIntensity" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="leve">Leve (pouco disruptivo)</option>
-                                <option value="moderada">Moderada (interrompe atividades)</option>
-                                <option value="severa">Severa (impede funcionamento)</option>
-                                <option value="extrema">Extrema (risco de segurança)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Duração Típica</label>
-                            <select id="behaviorDuration" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="segundos">Segundos (< 1 minuto)</option>
-                                <option value="minutos">Minutos (1-10 minutos)</option>
-                                <option value="prolongado">Prolongado (10-30 minutos)</option>
-                                <option value="extenso">Extenso (> 30 minutos)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Análise Funcional -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🔍 Análise Funcional do Comportamento</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Antecedentes Identificados</label>
-                            <div class="space-y-2">
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="antecedent-check w-5 h-5" value="demanda-academica">
-                                    <span>Demanda acadêmica</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="antecedent-check w-5 h-5" value="transicao">
-                                    <span>Transição de atividade</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="antecedent-check w-5 h-5" value="negacao">
-                                    <span>Negação de pedido</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="antecedent-check w-5 h-5" value="estimulo-sensorial">
-                                    <span>Estímulo sensorial aversivo</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="antecedent-check w-5 h-5" value="atencao-social">
-                                    <span>Falta de atenção social</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Função do Comportamento</label>
-                            <div class="space-y-2">
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="function-check w-5 h-5" value="fuga-esquiva">
-                                    <span>Fuga/Esquiva de demandas</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="function-check w-5 h-5" value="atencao">
-                                    <span>Obtenção de atenção</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="function-check w-5 h-5" value="tangivel">
-                                    <span>Acesso a tangíveis</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="function-check w-5 h-5" value="sensorial">
-                                    <span>Estimulação sensorial</span>
-                                </label>
-                                <label class="flex items-center space-x-3">
-                                    <input type="checkbox" class="function-check w-5 h-5" value="comunicacao">
-                                    <span>Comunicação de necessidades</span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Estratégias de Manejo -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🛠️ Estratégias de Manejo Comportamental</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="reforco-positivo">
-                            ⭐ Reforço Positivo
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="economia-fichas">
-                            🎫 Economia de Fichas
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="pausas-regulares">
-                            ⏰ Pausas Regulares
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="ambiente-estruturado">
-                            🏗️ Ambiente Estruturado
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="comunicacao-alternativa">
-                            💬 Comunicação Alternativa
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="dessensibilizacao">
-                            🎯 Dessensibilização
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="modelagem">
-                            👥 Modelagem
-                        </button>
-                        <button type="button" class="strategy-btn senior-friendly text-center bg-blue-50 hover:bg-blue-100" data-strategy="extincao">
-                            🚫 Extinção
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Observações Comportamentais -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📝 Observações Comportamentais Detalhadas</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Padrões Comportamentais Observados</label>
-                            <textarea id="behaviorPatterns" class="senior-friendly w-full h-24" placeholder="Descreva padrões específicos, sequências comportamentais, variações contextuais..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Fatores de Proteção e Risco</label>
-                            <textarea id="riskProtectiveFactors" class="senior-friendly w-full h-24" placeholder="Identifique fatores que aumentam ou diminuem a probabilidade de comportamentos desafiadores..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Estratégias Eficazes Identificadas</label>
-                            <textarea id="effectiveStrategies" class="senior-friendly w-full h-24" placeholder="Documente estratégias que funcionaram, contextos de sucesso, adaptações necessárias..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Plano de Intervenção Comportamental</label>
-                            <textarea id="behaviorInterventionPlan" class="senior-friendly w-full h-32" placeholder="Detalhe o plano de intervenção, objetivos específicos, estratégias preventivas e reativas, critérios de sucesso..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Save Button -->
                 <div class="text-center">
                     <button id="saveBehavioral" class="large-button bg-orange-500 hover:bg-orange-600 text-white px-12 focus-visible">
-                        👤 Salvar Avaliação Comportamental Completa
+                        👤 Salvar Avaliação Comportamental
                     </button>
                 </div>
             </div>
@@ -1183,276 +882,13 @@
             <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100">
                 <h2 class="text-xl-large text-gray-800 mb-8 flex items-center">
                     <span class="mr-3">📚</span>
-                    Avaliação Acadêmica Avançada
+                    Avaliação Acadêmica
                 </h2>
                 
-                <!-- Habilidades de Leitura -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📖 Habilidades de Leitura</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Decodificação</label>
-                            <select id="readingDecoding" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Pré-alfabético (não reconhece letras)</option>
-                                <option value="2">2 - Alfabético Inicial (reconhece algumas letras)</option>
-                                <option value="3">3 - Alfabético (decodifica palavras simples)</option>
-                                <option value="4">4 - Ortográfico (lê palavras complexas)</option>
-                                <option value="5">5 - Fluente (leitura automática)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Fluência de Leitura</label>
-                            <select id="readingFluency" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Lenta (< 30 palavras/min)</option>
-                                <option value="2">2 - Lenta (30-60 palavras/min)</option>
-                                <option value="3">3 - Moderada (60-90 palavras/min)</option>
-                                <option value="4">4 - Adequada (90-120 palavras/min)</option>
-                                <option value="5">5 - Rápida (> 120 palavras/min)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Compreensão Leitora</label>
-                            <select id="readingComprehension" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Limitada (não compreende)</option>
-                                <option value="2">2 - Limitada (compreende frases simples)</option>
-                                <option value="3">3 - Moderada (compreende textos curtos)</option>
-                                <option value="4">4 - Boa (compreende textos complexos)</option>
-                                <option value="5">5 - Excelente (análise crítica)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Vocabulário</label>
-                            <select id="vocabulary" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Limitado (< 500 palavras)</option>
-                                <option value="2">2 - Limitado (500-1500 palavras)</option>
-                                <option value="3">3 - Moderado (1500-3000 palavras)</option>
-                                <option value="4">4 - Rico (3000-5000 palavras)</option>
-                                <option value="5">5 - Muito Rico (> 5000 palavras)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Habilidades de Escrita -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">✍️ Habilidades de Escrita</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Grafomotricidade</label>
-                            <select id="graphomotor" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Prejudicada (não segura lápis)</option>
-                                <option value="2">2 - Prejudicada (traçado irregular)</option>
-                                <option value="3">3 - Moderada (traçado com esforço)</option>
-                                <option value="4">4 - Adequada (traçado controlado)</option>
-                                <option value="5">5 - Excelente (traçado fluido)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Ortografia</label>
-                            <select id="spelling" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Pré-fonética (rabiscos)</option>
-                                <option value="2">2 - Fonética (escreve como fala)</option>
-                                <option value="3">3 - Transicional (algumas regras)</option>
-                                <option value="4">4 - Convencional (ortografia correta)</option>
-                                <option value="5">5 - Avançada (ortografia complexa)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Produção Textual</label>
-                            <select id="textProduction" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Produz (apenas palavras isoladas)</option>
-                                <option value="2">2 - Frases Simples (estrutura básica)</option>
-                                <option value="3">3 - Parágrafos (textos curtos)</option>
-                                <option value="4">4 - Textos Estruturados (coerência)</option>
-                                <option value="5">5 - Textos Complexos (criatividade)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Revisão e Edição</label>
-                            <select id="textRevision" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Revisa (não identifica erros)</option>
-                                <option value="2">2 - Revisão Mínima (poucos erros)</option>
-                                <option value="3">3 - Revisão Básica (erros óbvios)</option>
-                                <option value="4">4 - Revisão Adequada (melhora texto)</option>
-                                <option value="5">5 - Revisão Sofisticada (aprimora estilo)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Habilidades Matemáticas -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🔢 Habilidades Matemáticas</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Conceitos Numéricos</label>
-                            <select id="numericalConcepts" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Pré-numérico (não compreende números)</option>
-                                <option value="2">2 - Numérico Inicial (1-10)</option>
-                                <option value="3">3 - Numérico Básico (1-100)</option>
-                                <option value="4">4 - Numérico Avançado (> 100)</option>
-                                <option value="5">5 - Conceitos Complexos (decimais, frações)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Operações Básicas</label>
-                            <select id="basicOperations" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Realiza (não compreende operações)</option>
-                                <option value="2">2 - Adição Simples (com apoio concreto)</option>
-                                <option value="3">3 - Adição/Subtração (algoritmos básicos)</option>
-                                <option value="4">4 - Quatro Operações (multiplicação/divisão)</option>
-                                <option value="5">5 - Operações Complexas (com decimais)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Resolução de Problemas</label>
-                            <select id="mathProblemSolving" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Resolve (não compreende enunciados)</option>
-                                <option value="2">2 - Problemas Simples (uma operação)</option>
-                                <option value="3">3 - Problemas Moderados (duas operações)</option>
-                                <option value="4">4 - Problemas Complexos (múltiplas etapas)</option>
-                                <option value="5">5 - Problemas Avançados (estratégias sofisticadas)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Geometria e Medidas</label>
-                            <select id="geometryMeasures" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Compreende (não identifica formas)</option>
-                                <option value="2">2 - Formas Básicas (círculo, quadrado)</option>
-                                <option value="3">3 - Formas Complexas (polígonos)</option>
-                                <option value="4">4 - Medidas (comprimento, área)</option>
-                                <option value="5">5 - Conceitos Avançados (volume, ângulos)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Estilos de Aprendizagem -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🎯 Estilos e Preferências de Aprendizagem</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-                        <button type="button" class="learning-style-btn senior-friendly text-center bg-purple-50 hover:bg-purple-100" data-learning="visual">
-                            👁️ Visual
-                        </button>
-                        <button type="button" class="learning-style-btn senior-friendly text-center bg-purple-50 hover:bg-purple-100" data-learning="auditivo">
-                            👂 Auditivo
-                        </button>
-                        <button type="button" class="learning-style-btn senior-friendly text-center bg-purple-50 hover:bg-purple-100" data-learning="cinestesico">
-                            🤲 Cinestésico
-                        </button>
-                        <button type="button" class="learning-style-btn senior-friendly text-center bg-purple-50 hover:bg-purple-100" data-learning="multimodal">
-                            🌈 Multimodal
-                        </button>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Motivação Acadêmica</label>
-                            <select id="academicMotivation" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Baixa (evita atividades)</option>
-                                <option value="2">2 - Baixa (participa com relutância)</option>
-                                <option value="3">3 - Moderada (participa com incentivo)</option>
-                                <option value="4">4 - Alta (engajamento espontâneo)</option>
-                                <option value="5">5 - Muito Alta (busca desafios)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Persistência na Tarefa</label>
-                            <select id="taskPersistence" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Baixa (desiste imediatamente)</option>
-                                <option value="2">2 - Baixa (desiste rapidamente)</option>
-                                <option value="3">3 - Moderada (persiste com apoio)</option>
-                                <option value="4">4 - Alta (persiste independentemente)</option>
-                                <option value="5">5 - Muito Alta (persiste mesmo com dificuldades)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Necessidades Educacionais -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🎓 Necessidades Educacionais Especiais</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="educational-need w-5 h-5" value="tempo-adicional">
-                            <span>Tempo adicional</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="educational-need w-5 h-5" value="instrucoes-simplificadas">
-                            <span>Instruções simplificadas</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="educational-need w-5 h-5" value="apoio-visual">
-                            <span>Apoio visual</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="educational-need w-5 h-5" value="pausas-frequentes">
-                            <span>Pausas frequentes</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="educational-need w-5 h-5" value="ambiente-reduzido">
-                            <span>Ambiente com menos distrações</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="educational-need w-5 h-5" value="tecnologia-assistiva">
-                            <span>Tecnologia assistiva</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Observações Acadêmicas -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📝 Observações Acadêmicas Detalhadas</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Pontos Fortes Acadêmicos</label>
-                            <textarea id="academicStrengths" class="senior-friendly w-full h-24" placeholder="Identifique áreas de destaque, habilidades desenvolvidas, interesses específicos..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Dificuldades Específicas</label>
-                            <textarea id="academicDifficulties" class="senior-friendly w-full h-24" placeholder="Descreva dificuldades observadas, padrões de erro, áreas que necessitam apoio..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Estratégias Pedagógicas Eficazes</label>
-                            <textarea id="effectivePedagogicalStrategies" class="senior-friendly w-full h-24" placeholder="Documente estratégias que funcionaram, adaptações bem-sucedidas, recursos úteis..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Plano de Desenvolvimento Acadêmico</label>
-                            <textarea id="academicDevelopmentPlan" class="senior-friendly w-full h-32" placeholder="Detalhe objetivos acadêmicos, metas de curto e longo prazo, estratégias de ensino recomendadas, adaptações curriculares..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Save Button -->
                 <div class="text-center">
                     <button id="saveAcademic" class="large-button bg-blue-500 hover:bg-blue-600 text-white px-12 focus-visible">
-                        📚 Salvar Avaliação Acadêmica Completa
+                        📚 Salvar Avaliação Acadêmica
                     </button>
                 </div>
             </div>
@@ -1463,297 +899,13 @@
             <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100">
                 <h2 class="text-xl-large text-gray-800 mb-8 flex items-center">
                     <span class="mr-3">🤝</span>
-                    Avaliação Social Avançada
+                    Avaliação Social
                 </h2>
                 
-                <!-- Habilidades de Comunicação Social -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">💬 Habilidades de Comunicação Social</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Contato Visual</label>
-                            <select id="eyeContact" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Evita Completamente (não faz contato visual)</option>
-                                <option value="2">2 - Muito Limitado (contato visual breve)</option>
-                                <option value="3">3 - Moderado (contato visual com apoio)</option>
-                                <option value="4">4 - Adequado (contato visual apropriado)</option>
-                                <option value="5">5 - Excelente (contato visual natural)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Expressão Facial</label>
-                            <select id="facialExpression" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Inexpressiva (sem variação)</option>
-                                <option value="2">2 - Limitada (poucas expressões)</option>
-                                <option value="3">3 - Moderada (algumas expressões)</option>
-                                <option value="4">4 - Variada (expressões apropriadas)</option>
-                                <option value="5">5 - Rica (expressões complexas)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Linguagem Corporal</label>
-                            <select id="bodyLanguage" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Inadequada (postura rígida/inadequada)</option>
-                                <option value="2">2 - Limitada (poucos gestos)</option>
-                                <option value="3">3 - Moderada (gestos básicos)</option>
-                                <option value="4">4 - Adequada (linguagem corporal apropriada)</option>
-                                <option value="5">5 - Expressiva (linguagem corporal rica)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Reciprocidade Social</label>
-                            <select id="socialReciprocity" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Ausente (não responde socialmente)</option>
-                                <option value="2">2 - Limitada (respostas básicas)</option>
-                                <option value="3">3 - Moderada (reciprocidade com apoio)</option>
-                                <option value="4">4 - Adequada (reciprocidade natural)</option>
-                                <option value="5">5 - Sofisticada (reciprocidade complexa)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interação com Pares -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">👫 Interação com Pares</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Iniciativa Social</label>
-                            <select id="socialInitiative" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Nunca Inicia (isolamento completo)</option>
-                                <option value="2">2 - Raramente Inicia (muito passivo)</option>
-                                <option value="3">3 - Às Vezes Inicia (com encorajamento)</option>
-                                <option value="4">4 - Frequentemente Inicia (socialmente ativo)</option>
-                                <option value="5">5 - Lidera Interações (iniciativa natural)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Manutenção de Amizades</label>
-                            <select id="friendshipMaintenance" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Mantém (sem amizades)</option>
-                                <option value="2">2 - Dificuldade (amizades superficiais)</option>
-                                <option value="3">3 - Moderada (algumas amizades)</option>
-                                <option value="4">4 - Boa (amizades estáveis)</option>
-                                <option value="5">5 - Excelente (amizades profundas)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Cooperação em Grupo</label>
-                            <select id="groupCooperation" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Coopera (evita grupos)</option>
-                                <option value="2">2 - Cooperação Limitada (participação mínima)</option>
-                                <option value="3">3 - Cooperação Moderada (participa com apoio)</option>
-                                <option value="4">4 - Boa Cooperação (colabora efetivamente)</option>
-                                <option value="5">5 - Liderança (facilita cooperação)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Resolução de Conflitos</label>
-                            <select id="conflictResolution" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Resolve (evita ou agrava)</option>
-                                <option value="2">2 - Resolução Limitada (precisa mediação)</option>
-                                <option value="3">3 - Resolução Moderada (com apoio)</option>
-                                <option value="4">4 - Boa Resolução (estratégias adequadas)</option>
-                                <option value="5">5 - Mediador (ajuda outros a resolver)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Competências Sociais Específicas -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🎯 Competências Sociais Específicas</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="cumprimentar">
-                            <span>Cumprimentar adequadamente</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="pedir-ajuda">
-                            <span>Pedir ajuda</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="oferecer-ajuda">
-                            <span>Oferecer ajuda</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="compartilhar">
-                            <span>Compartilhar</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="esperar-vez">
-                            <span>Esperar a vez</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="seguir-regras">
-                            <span>Seguir regras sociais</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="expressar-emocoes">
-                            <span>Expressar emoções</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="reconhecer-emocoes">
-                            <span>Reconhecer emoções dos outros</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="social-skill w-5 h-5" value="empatia">
-                            <span>Demonstrar empatia</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Contextos Sociais -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🏫 Desempenho em Diferentes Contextos</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Ambiente Escolar</label>
-                            <select id="schoolEnvironment" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Difícil (isolamento/problemas)</option>
-                                <option value="2">2 - Difícil (interação limitada)</option>
-                                <option value="3">3 - Moderado (adaptação com apoio)</option>
-                                <option value="4">4 - Bom (integração adequada)</option>
-                                <option value="5">5 - Excelente (liderança social)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Ambiente Familiar</label>
-                            <select id="familyEnvironment" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Muito Difícil (conflitos constantes)</option>
-                                <option value="2">2 - Difícil (tensões frequentes)</option>
-                                <option value="3">3 - Moderado (relacionamento básico)</option>
-                                <option value="4">4 - Bom (relacionamento positivo)</option>
-                                <option value="5">5 - Excelente (relacionamento caloroso)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Ambientes Comunitários</label>
-                            <select id="communityEnvironment" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Evita Completamente (não participa)</option>
-                                <option value="2">2 - Participação Limitada (com desconforto)</option>
-                                <option value="3">3 - Participação Moderada (com apoio)</option>
-                                <option value="4">4 - Boa Participação (confortável)</option>
-                                <option value="5">5 - Participação Ativa (engajado)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Situações Novas</label>
-                            <select id="newSituations" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Evita Totalmente (ansiedade extrema)</option>
-                                <option value="2">2 - Muita Dificuldade (resistência alta)</option>
-                                <option value="3">3 - Dificuldade Moderada (precisa preparação)</option>
-                                <option value="4">4 - Adapta-se Bem (flexibilidade)</option>
-                                <option value="5">5 - Busca Novidades (curiosidade social)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Teoria da Mente -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🧠 Teoria da Mente e Cognição Social</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Compreensão de Perspectivas</label>
-                            <select id="perspectiveTaking" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Compreende (perspectiva única)</option>
-                                <option value="2">2 - Compreensão Limitada (perspectivas simples)</option>
-                                <option value="3">3 - Compreensão Moderada (com apoio)</option>
-                                <option value="4">4 - Boa Compreensão (perspectivas múltiplas)</option>
-                                <option value="5">5 - Compreensão Sofisticada (nuances)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Leitura de Sinais Sociais</label>
-                            <select id="socialCues" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Lê (ignora sinais)</option>
-                                <option value="2">2 - Leitura Limitada (sinais óbvios)</option>
-                                <option value="3">3 - Leitura Moderada (com orientação)</option>
-                                <option value="4">4 - Boa Leitura (sinais sutis)</option>
-                                <option value="5">5 - Leitura Sofisticada (sinais complexos)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Compreensão de Intenções</label>
-                            <select id="intentionUnderstanding" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Compreende (interpretação literal)</option>
-                                <option value="2">2 - Compreensão Básica (intenções óbvias)</option>
-                                <option value="3">3 - Compreensão Moderada (com explicação)</option>
-                                <option value="4">4 - Boa Compreensão (intenções implícitas)</option>
-                                <option value="5">5 - Compreensão Avançada (intenções complexas)</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Humor e Ironia</label>
-                            <select id="humorIrony" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="1">1 - Não Compreende (interpretação literal)</option>
-                                <option value="2">2 - Compreensão Limitada (humor simples)</option>
-                                <option value="3">3 - Compreensão Moderada (com explicação)</option>
-                                <option value="4">4 - Boa Compreensão (humor sutil)</option>
-                                <option value="5">5 - Compreensão Sofisticada (cria humor)</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Observações Sociais -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📝 Observações Sociais Detalhadas</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Padrões de Interação Social</label>
-                            <textarea id="socialInteractionPatterns" class="senior-friendly w-full h-24" placeholder="Descreva padrões típicos de interação, preferências sociais, situações de maior/menor sucesso..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Barreiras Sociais Identificadas</label>
-                            <textarea id="socialBarriers" class="senior-friendly w-full h-24" placeholder="Identifique obstáculos específicos, medos sociais, mal-entendidos recorrentes..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Facilitadores Sociais</label>
-                            <textarea id="socialFacilitators" class="senior-friendly w-full h-24" placeholder="Documente fatores que facilitam interação social, pessoas de apoio, contextos favoráveis..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Plano de Desenvolvimento Social</label>
-                            <textarea id="socialDevelopmentPlan" class="senior-friendly w-full h-32" placeholder="Detalhe objetivos sociais, estratégias de intervenção, atividades recomendadas, metas de curto e longo prazo..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Save Button -->
                 <div class="text-center">
                     <button id="saveSocial" class="large-button bg-teal-500 hover:bg-teal-600 text-white px-12 focus-visible">
-                        🤝 Salvar Avaliação Social Completa
+                        🤝 Salvar Avaliação Social
                     </button>
                 </div>
             </div>
@@ -1764,315 +916,13 @@
             <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-gray-100">
                 <h2 class="text-xl-large text-gray-800 mb-8 flex items-center">
                     <span class="mr-3">🎯</span>
-                    Plano de Intervenção Avançado
+                    Plano de Intervenção
                 </h2>
                 
-                <!-- Objetivos Principais -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🎯 Objetivos de Intervenção</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Objetivo Principal (Curto Prazo - 3 meses)</label>
-                            <textarea id="shortTermGoal" class="senior-friendly w-full h-24" placeholder="Descreva o objetivo principal a ser alcançado nos próximos 3 meses, específico e mensurável..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Objetivo Secundário (Médio Prazo - 6 meses)</label>
-                            <textarea id="mediumTermGoal" class="senior-friendly w-full h-24" placeholder="Descreva objetivos complementares para os próximos 6 meses..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Objetivo de Longo Prazo (12 meses)</label>
-                            <textarea id="longTermGoal" class="senior-friendly w-full h-24" placeholder="Descreva a visão de desenvolvimento para o próximo ano..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Critérios de Sucesso</label>
-                            <textarea id="successCriteria" class="senior-friendly w-full h-24" placeholder="Defina como o sucesso será medido, indicadores específicos e observáveis..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Estratégias de Intervenção -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">🛠️ Estratégias de Intervenção</h3>
-                    
-                    <!-- Intervenções Comportamentais -->
-                    <div class="mb-6">
-                        <h4 class="text-large font-semibold text-gray-700 mb-4">Intervenções Comportamentais</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="aba-applied-behavior-analysis">
-                                <span>ABA (Análise do Comportamento Aplicada)</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="pecs-picture-exchange">
-                                <span>PECS (Sistema de Comunicação por Troca de Figuras)</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="teacch-structured-teaching">
-                                <span>TEACCH (Ensino Estruturado)</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="social-stories">
-                                <span>Histórias Sociais</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="video-modeling">
-                                <span>Modelagem por Vídeo</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="token-economy">
-                                <span>Economia de Fichas</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="self-monitoring">
-                                <span>Automonitoramento</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="mindfulness">
-                                <span>Mindfulness/Atenção Plena</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <!-- Intervenções Cognitivas -->
-                    <div class="mb-6">
-                        <h4 class="text-large font-semibold text-gray-700 mb-4">Intervenções Cognitivas</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                            <label class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="cognitive-training">
-                                <span>Treinamento Cognitivo</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="executive-function-training">
-                                <span>Treinamento de Funções Executivas</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="memory-strategies">
-                                <span>Estratégias de Memória</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="attention-training">
-                                <span>Treinamento Atencional</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="metacognitive-strategies">
-                                <span>Estratégias Metacognitivas</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="problem-solving-training">
-                                <span>Treinamento de Resolução de Problemas</span>
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <!-- Intervenções Sociais -->
-                    <div class="mb-6">
-                        <h4 class="text-large font-semibold text-gray-700 mb-4">Intervenções Sociais</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-                            <label class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="social-skills-training">
-                                <span>Treinamento de Habilidades Sociais</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="peer-mediated-intervention">
-                                <span>Intervenção Mediada por Pares</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="circle-of-friends">
-                                <span>Círculo de Amigos</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="social-thinking">
-                                <span>Pensamento Social</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="role-playing">
-                                <span>Dramatização/Role-Playing</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
-                                <input type="checkbox" class="intervention-strategy w-5 h-5" value="group-therapy">
-                                <span>Terapia em Grupo</span>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cronograma de Implementação -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📅 Cronograma de Implementação</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Frequência das Sessões</label>
-                            <select id="sessionFrequency" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="diaria">Diária (5x por semana)</option>
-                                <option value="4x-semana">4x por semana</option>
-                                <option value="3x-semana">3x por semana</option>
-                                <option value="2x-semana">2x por semana</option>
-                                <option value="semanal">Semanal (1x por semana)</option>
-                                <option value="quinzenal">Quinzenal</option>
-                                <option value="mensal">Mensal</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Duração das Sessões</label>
-                            <select id="sessionDuration" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="15min">15 minutos</option>
-                                <option value="30min">30 minutos</option>
-                                <option value="45min">45 minutos</option>
-                                <option value="60min">60 minutos</option>
-                                <option value="90min">90 minutos</option>
-                                <option value="120min">120 minutos</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Modalidade de Atendimento</label>
-                            <select id="serviceModality" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="individual">Individual</option>
-                                <option value="grupo-pequeno">Grupo Pequeno (2-4 pessoas)</option>
-                                <option value="grupo-medio">Grupo Médio (5-8 pessoas)</option>
-                                <option value="grupo-grande">Grupo Grande (9+ pessoas)</option>
-                                <option value="misto">Misto (Individual + Grupo)</option>
-                                <option value="inclusao">Inclusão em Sala Regular</option>
-                            </select>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Período de Reavaliação</label>
-                            <select id="reassessmentPeriod" class="senior-friendly w-full">
-                                <option value="">Selecione...</option>
-                                <option value="mensal">Mensal</option>
-                                <option value="bimestral">Bimestral</option>
-                                <option value="trimestral">Trimestral</option>
-                                <option value="semestral">Semestral</option>
-                                <option value="anual">Anual</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Recursos e Materiais -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📦 Recursos e Materiais Necessários</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="materiais-visuais">
-                            <span>Materiais Visuais (cartões, figuras)</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="tecnologia-assistiva">
-                            <span>Tecnologia Assistiva</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="jogos-educativos">
-                            <span>Jogos Educativos</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="materiais-sensoriais">
-                            <span>Materiais Sensoriais</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="livros-especializados">
-                            <span>Livros e Materiais Especializados</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="software-educativo">
-                            <span>Software Educativo</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="equipamentos-adaptados">
-                            <span>Equipamentos Adaptados</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="resource-need w-5 h-5" value="ambiente-estruturado">
-                            <span>Ambiente Estruturado</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Equipe Multidisciplinar -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">👥 Equipe Multidisciplinar</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="psicologo">
-                            <span>Psicólogo</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="psicopedagogo">
-                            <span>Psicopedagogo</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="terapeuta-ocupacional">
-                            <span>Terapeuta Ocupacional</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="fonoaudiologo">
-                            <span>Fonoaudiólogo</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="fisioterapeuta">
-                            <span>Fisioterapeuta</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="professor-especializado">
-                            <span>Professor Especializado</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="assistente-social">
-                            <span>Assistente Social</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="neurologista">
-                            <span>Neurologista</span>
-                        </label>
-                        <label class="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg">
-                            <input type="checkbox" class="team-member w-5 h-5" value="psiquiatra">
-                            <span>Psiquiatra</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Plano Detalhado -->
-                <div class="mb-8">
-                    <h3 class="text-large text-gray-700 mb-6 font-semibold">📋 Plano Detalhado de Intervenção</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Atividades Específicas</label>
-                            <textarea id="specificActivities" class="senior-friendly w-full h-32" placeholder="Detalhe as atividades específicas que serão realizadas, metodologias, sequência de implementação..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Adaptações Ambientais</label>
-                            <textarea id="environmentalAdaptations" class="senior-friendly w-full h-24" placeholder="Descreva adaptações necessárias no ambiente físico, organizacional, sensorial..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Estratégias de Generalização</label>
-                            <textarea id="generalizationStrategies" class="senior-friendly w-full h-24" placeholder="Como as habilidades aprendidas serão generalizadas para outros contextos e situações..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Envolvimento da Família</label>
-                            <textarea id="familyInvolvement" class="senior-friendly w-full h-24" placeholder="Como a família será envolvida no processo, orientações, atividades em casa..."></textarea>
-                        </div>
-                        
-                        <div>
-                            <label class="block text-large font-semibold text-gray-700 mb-3">Monitoramento e Avaliação</label>
-                            <textarea id="monitoringEvaluation" class="senior-friendly w-full h-32" placeholder="Como o progresso será monitorado, instrumentos de avaliação, frequência de revisão, indicadores de sucesso..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
+                <!-- Save Button -->
                 <div class="text-center">
                     <button id="saveIntervention" class="large-button bg-indigo-500 hover:bg-indigo-600 text-white px-12 focus-visible">
-                        🎯 Salvar Plano de Intervenção Completo
+                        🎯 Salvar Plano de Intervenção
                     </button>
                 </div>
             </div>
@@ -2213,74 +1063,129 @@
         </div>
     </div>
 
-    <!-- Email Confirmation Modal -->
-    <div id="emailConfirmModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-            <div class="text-center">
-                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <span class="text-4xl">📧</span>
-                </div>
-                <h2 class="text-xl-large text-gray-800 mb-4">Confirme seu Email</h2>
-                <p class="text-gray-600 mb-4">
-                    Enviamos um código de confirmação para:
-                    <br><strong id="confirmationEmail" class="text-blue-600"></strong>
-                </p>
-                
-                <div id="codeDisplay" class="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-6 text-center hidden">
-                    <p class="text-sm text-green-700 mb-2">🔑 Seu código de confirmação:</p>
-                    <p id="displayedCode" class="text-3xl font-mono font-bold text-green-800"></p>
-                    <p class="text-xs text-green-600 mt-2">Digite este código no campo abaixo</p>
-                </div>
-                
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Código de Confirmação</label>
-                        <input id="confirmationCode" type="text" class="senior-friendly w-full text-center text-2xl font-mono" placeholder="000000" maxlength="6">
-                    </div>
-                    
-                    <button id="verifyCode" class="large-button bg-green-500 hover:bg-green-600 text-white w-full">
-                        ✅ Confirmar Código
-                    </button>
-                    
-                    <button id="resendCode" class="text-sm text-blue-600 hover:text-blue-800 w-full text-center">
-                        Reenviar código
-                    </button>
-                </div>
-                
-                <button id="closeConfirmModal" class="large-button bg-gray-500 hover:bg-gray-600 text-white w-full mt-6">
-                    ✖️ Cancelar
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Forgot Password Modal -->
     <div id="forgotPasswordModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
-            <div class="text-center">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+            <!-- Etapa 1: Verificar Email -->
+            <div id="forgotStep1" class="text-center">
                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <span class="text-4xl">🔑</span>
                 </div>
                 <h2 class="text-xl-large text-gray-800 mb-4">Recuperar Senha</h2>
                 <p class="text-gray-600 mb-6">
-                    Digite seu email para receber instruções de recuperação
+                    Digite seu email para iniciar a recuperação
                 </p>
                 
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                        <input id="forgotEmail" type="email" class="senior-friendly w-full" placeholder="seu.email@exemplo.com">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">📧 Email da Conta</label>
+                        <input id="forgotEmail" type="email" class="senior-friendly w-full" placeholder="seu.email@exemplo.com" autocomplete="email">
                     </div>
                     
-                    <button id="sendRecovery" class="large-button bg-blue-500 hover:bg-blue-600 text-white w-full">
-                        📧 Enviar Instruções
+                    <button id="verifyEmailForRecovery" class="large-button bg-blue-500 hover:bg-blue-600 text-white w-full">
+                        🔍 Verificar Email
                     </button>
                 </div>
+            </div>
+
+            <!-- Etapa 2: Responder Pergunta de Segurança -->
+            <div id="forgotStep2" class="text-center hidden">
+                <div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-4xl">❓</span>
+                </div>
+                <h2 class="text-xl-large text-gray-800 mb-4">Pergunta de Segurança</h2>
+                <p class="text-gray-600 mb-6">
+                    Responda sua pergunta de segurança para continuar
+                </p>
                 
-                <button id="closeForgotModal" class="large-button bg-gray-500 hover:bg-gray-600 text-white w-full mt-6">
-                    ✖️ Cancelar
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="font-semibold text-blue-800 mb-2">Sua pergunta:</p>
+                        <p id="displaySecurityQuestion" class="text-blue-700"></p>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">💭 Sua Resposta</label>
+                        <input id="securityAnswerInput" type="text" class="senior-friendly w-full" placeholder="Digite sua resposta">
+                        <p class="text-xs text-gray-500 mt-1">A resposta deve ser exatamente como você cadastrou</p>
+                    </div>
+                    
+                    <button id="verifySecurityAnswer" class="large-button bg-yellow-500 hover:bg-yellow-600 text-white w-full">
+                        ✅ Verificar Resposta
+                    </button>
+                    
+                    <button id="backToEmailStep" class="text-sm text-blue-600 hover:text-blue-800 w-full text-center py-2">
+                        ← Voltar para email
+                    </button>
+                </div>
+            </div>
+
+            <!-- Etapa 3: Definir Nova Senha -->
+            <div id="forgotStep3" class="text-center hidden">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-4xl">🔐</span>
+                </div>
+                <h2 class="text-xl-large text-gray-800 mb-4">Nova Senha</h2>
+                <p class="text-gray-600 mb-6">
+                    Crie uma nova senha segura para sua conta
+                </p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">🔐 Nova Senha</label>
+                        <div class="relative">
+                            <input id="newPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                            <button type="button" id="toggleNewPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 text-xl">
+                                👁️
+                            </button>
+                        </div>
+                        <div id="newPasswordStrength" class="mt-2 text-sm"></div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">🔐 Confirmar Nova Senha</label>
+                        <div class="relative">
+                            <input id="confirmNewPassword" type="password" class="senior-friendly w-full pr-12" placeholder="Digite a senha novamente" autocomplete="new-password">
+                            <button type="button" id="toggleConfirmNewPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 text-xl">
+                                👁️
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg text-left">
+                        <h4 class="font-semibold text-green-800 mb-2">✅ Requisitos da Senha:</h4>
+                        <ul class="text-sm text-green-700 space-y-1">
+                            <li>• Mínimo 8 caracteres</li>
+                            <li>• Pelo menos 1 letra maiúscula</li>
+                            <li>• Pelo menos 1 número</li>
+                            <li>• Pelo menos 1 caractere especial</li>
+                        </ul>
+                    </div>
+                    
+                    <button id="updatePassword" class="large-button bg-green-500 hover:bg-green-600 text-white w-full">
+                        🔄 Atualizar Senha
+                    </button>
+                </div>
+            </div>
+
+            <!-- Etapa 4: Sucesso -->
+            <div id="forgotStep4" class="text-center hidden">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <span class="text-4xl">✅</span>
+                </div>
+                <h2 class="text-xl-large text-gray-800 mb-4">Senha Atualizada!</h2>
+                <p class="text-gray-600 mb-6">
+                    Sua senha foi alterada com sucesso. Agora você pode fazer login com a nova senha.
+                </p>
+                
+                <button id="goToLogin" class="large-button bg-blue-500 hover:bg-blue-600 text-white w-full">
+                    🔑 Fazer Login Agora
                 </button>
             </div>
+            
+            <button id="closeForgotModal" class="large-button bg-gray-500 hover:bg-gray-600 text-white w-full mt-6">
+                ✖️ Fechar
+            </button>
         </div>
     </div>
 
@@ -2325,45 +1230,20 @@
         let selectedBehaviors = [];
         let selectedStrategies = [];
         let selectedLearningStyle = null;
-        let pendingRegistration = null;
-        let generatedCode = null;
 
         // Charts
         let progressChart = null;
         let evolutionChart = null;
         let areasChart = null;
 
+        // Recovery variables
+        let recoveryUserData = null;
+        let recoveryEmail = null;
+
         // Initialize app
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('🚀 Aplicação iniciando...');
-            console.log('📋 Verificando elementos principais...');
-            
-            // Verificar se elementos críticos existem
-            const criticalElements = [
-                'loginScreen',
-                'registerUser',
-                'emailLogin',
-                'registerName',
-                'registerEmail',
-                'registerPassword',
-                'confirmPassword',
-                'agreeTerms'
-            ];
-            
-            const missingElements = criticalElements.filter(id => !document.getElementById(id));
-            
-            if (missingElements.length > 0) {
-                console.error('❌ Elementos críticos não encontrados:', missingElements);
-                alert('❌ Erro crítico: Alguns elementos da interface não foram carregados. Recarregue a página.');
-                return;
-            }
-            
-            console.log('✅ Todos os elementos críticos encontrados!');
-            
             initializeEventListeners();
             checkAuthStatus();
-            
-            console.log('✅ Aplicação inicializada com sucesso!');
         });
 
         // Authentication functions
@@ -2448,325 +1328,21 @@
         }
 
         function handleLogin() {
-            console.log('🔄 Iniciando processo de login...');
-            
-            const emailEl = document.getElementById('loginEmail');
-            const passwordEl = document.getElementById('loginPassword');
-            
-            console.log('🔍 Elementos de login encontrados:', {
-                email: !!emailEl,
-                password: !!passwordEl
-            });
-            
-            if (!emailEl || !passwordEl) {
-                console.error('❌ Elementos do formulário de login não encontrados!');
-                alert('❌ Erro interno: Elementos do formulário não encontrados. Recarregue a página.');
-                return;
-            }
-            
-            const email = emailEl.value.trim();
-            const password = passwordEl.value;
-            
-            console.log('📝 Dados de login coletados:', { email, password: '***' });
-            
-            // Detailed validation for login
-            const errors = [];
-            
-            // Email validation
-            if (!email) {
-                errors.push('❌ EMAIL: Campo obrigatório não preenchido');
-            } else if (!isValidEmail(email)) {
-                errors.push('❌ EMAIL: Formato inválido (exemplo: nome@dominio.com)');
-            }
-            
-            // Password validation
-            if (!password) {
-                errors.push('❌ SENHA: Campo obrigatório não preenchido');
-            } else if (password.length < 3) {
-                errors.push('❌ SENHA: Muito curta para ser válida');
-            }
-            
-            // Show errors if any
-            if (errors.length > 0) {
-                const errorMessage = '🚫 ERROS NO LOGIN:\n\n' + errors.join('\n\n') + '\n\n✅ Corrija os erros acima e tente novamente.';
-                alert(errorMessage);
-                return;
-            }
-            
-            // Check if user exists and password matches
-            const userKey = `serenamente_user_${btoa(email).replace(/[^a-zA-Z0-9]/g, '')}`;
-            const userData = localStorage.getItem(userKey);
-            
-            if (!userData) {
-                alert('❌ Email não encontrado. Cadastre-se primeiro.');
-                return;
-            }
-            
-            const user = JSON.parse(userData);
-            
-            if (!user.confirmed) {
-                alert('⚠️ Email não confirmado. Verifique sua caixa de entrada.');
-                return;
-            }
-            
-            // Simple password verification (in production, use proper hashing)
-            if (user.password !== btoa(password)) {
-                alert('❌ Senha incorreta.');
-                return;
-            }
-            
-            const loginUser = {
-                id: user.id,
-                email: user.email,
-                name: user.name,
-                profession: user.profession,
-                picture: null,
-                loginTime: new Date().toISOString()
-            };
-            
-            loginUser(loginUser);
-        }
-
-        function handleRegistration() {
-            console.log('🔄 Botão de cadastro clicado!');
-            console.log('🔄 Iniciando processo de cadastro...');
-            
-            // Verificar se os elementos existem
-            const nameEl = document.getElementById('registerName');
-            const emailEl = document.getElementById('registerEmail');
-            const professionEl = document.getElementById('registerProfession');
-            const passwordEl = document.getElementById('registerPassword');
-            const confirmPasswordEl = document.getElementById('confirmPassword');
-            const agreeTermsEl = document.getElementById('agreeTerms');
-            
-            console.log('🔍 Elementos encontrados:', {
-                name: !!nameEl,
-                email: !!emailEl,
-                profession: !!professionEl,
-                password: !!passwordEl,
-                confirmPassword: !!confirmPasswordEl,
-                agreeTerms: !!agreeTermsEl
-            });
-            
-            if (!nameEl || !emailEl || !professionEl || !passwordEl || !confirmPasswordEl || !agreeTermsEl) {
-                console.error('❌ Alguns elementos do formulário não foram encontrados!');
-                alert('❌ Erro interno: Elementos do formulário não encontrados. Recarregue a página.');
-                return;
-            }
-            
-            const name = nameEl.value.trim();
-            const email = emailEl.value.trim();
-            const profession = professionEl.value;
-            const password = passwordEl.value;
-            const confirmPassword = confirmPasswordEl.value;
-            const agreeTerms = agreeTermsEl.checked;
-            
-            console.log('📝 Dados coletados:', { 
-                name: name || '(vazio)', 
-                email: email || '(vazio)', 
-                profession: profession || '(vazio)', 
-                password: password ? '***' : '(vazio)', 
-                confirmPassword: confirmPassword ? '***' : '(vazio)', 
-                agreeTerms 
-            });
-            
-            // Validação simplificada para teste
-            if (!name) {
-                alert('❌ Por favor, preencha seu nome completo.');
-                nameEl.focus();
-                return;
-            }
+            const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const password = document.getElementById('loginPassword').value;
             
             if (!email) {
-                alert('❌ Por favor, preencha seu email.');
-                emailEl.focus();
+                alert('❌ Digite seu email');
                 return;
             }
             
             if (!isValidEmail(email)) {
-                alert('❌ Por favor, digite um email válido (exemplo: nome@dominio.com).');
-                emailEl.focus();
-                return;
-            }
-            
-            if (!profession) {
-                alert('❌ Por favor, selecione sua profissão.');
-                professionEl.focus();
+                alert('❌ Email inválido');
                 return;
             }
             
             if (!password) {
-                alert('❌ Por favor, crie uma senha.');
-                passwordEl.focus();
-                return;
-            }
-            
-            if (password.length < 6) {
-                alert('❌ A senha deve ter pelo menos 6 caracteres.');
-                passwordEl.focus();
-                return;
-            }
-            
-            if (!confirmPassword) {
-                alert('❌ Por favor, confirme sua senha.');
-                confirmPasswordEl.focus();
-                return;
-            }
-            
-            if (password !== confirmPassword) {
-                alert('❌ As senhas não coincidem. Digite novamente.');
-                confirmPasswordEl.focus();
-                return;
-            }
-            
-            if (!agreeTerms) {
-                alert('❌ Você deve concordar com os termos de uso para continuar.');
-                agreeTermsEl.focus();
-                return;
-            }
-            
-            console.log('✅ Validação passou, continuando com cadastro...');
-            
-            // Check if user already exists
-            const userKey = `serenamente_user_${btoa(email).replace(/[^a-zA-Z0-9]/g, '')}`;
-            if (localStorage.getItem(userKey)) {
-                alert('❌ Este email já está cadastrado. Faça login ou use "Esqueceu a senha?".');
-                return;
-            }
-            
-            // Generate confirmation code
-            generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
-            console.log('🔑 Código gerado:', generatedCode);
-            
-            // Store pending registration
-            pendingRegistration = {
-                id: btoa(email).replace(/[^a-zA-Z0-9]/g, ''),
-                name: name,
-                email: email,
-                profession: profession,
-                password: btoa(password), // Simple encoding (use proper hashing in production)
-                confirmed: false,
-                registrationDate: new Date().toISOString()
-            };
-            console.log('💾 Registro pendente criado:', pendingRegistration);
-            
-            // Show confirmation modal FIRST
-            document.getElementById('confirmationEmail').textContent = email;
-            document.getElementById('emailConfirmModal').classList.remove('hidden');
-            document.getElementById('emailConfirmModal').classList.add('flex');
-            console.log('📧 Modal de confirmação aberto');
-            
-            // Then simulate sending email with the code displayed
-            sendConfirmationEmail(email, generatedCode);
-        }
-
-        function sendConfirmationEmail(email, code) {
-            // Simulate email sending (in production, this would be a server call)
-            console.log(`📧 Email de confirmação enviado para ${email} com código: ${code}`);
-            
-            // Show the code directly on the confirmation modal
-            setTimeout(() => {
-                document.getElementById('displayedCode').textContent = code;
-                document.getElementById('codeDisplay').classList.remove('hidden');
-                
-                // Also show success message
-                alert(`✅ CADASTRO REALIZADO COM SUCESSO!\n\n📧 Código de confirmação gerado para:\n${email}\n\n🔑 O código aparece na tela de confirmação.\n\n📝 Digite o código para ativar sua conta.\n\n(Em um sistema real, este código seria enviado por email)`);
-            }, 500);
-        }
-
-        function verifyEmailCode() {
-            const enteredCode = document.getElementById('confirmationCode').value.trim();
-            
-            // Detailed validation for confirmation code
-            const errors = [];
-            
-            if (!enteredCode) {
-                errors.push('❌ CÓDIGO: Campo obrigatório não preenchido');
-            } else if (enteredCode.length !== 6) {
-                errors.push('❌ CÓDIGO: Deve ter exatamente 6 dígitos');
-            } else if (!/^\d{6}$/.test(enteredCode)) {
-                errors.push('❌ CÓDIGO: Deve conter apenas números (0-9)');
-            } else if (enteredCode !== generatedCode) {
-                errors.push('❌ CÓDIGO: Código incorreto, verifique e tente novamente');
-            }
-            
-            // Show errors if any
-            if (errors.length > 0) {
-                const errorMessage = '🚫 ERRO NA CONFIRMAÇÃO:\n\n' + errors.join('\n\n') + '\n\n✅ Corrija o erro acima e tente novamente.';
-                alert(errorMessage);
-                return;
-            }
-            
-            // Confirm registration
-            pendingRegistration.confirmed = true;
-            const userKey = `serenamente_user_${pendingRegistration.id}`;
-            localStorage.setItem(userKey, JSON.stringify(pendingRegistration));
-            
-            // Create user object for login
-            const user = {
-                id: pendingRegistration.id,
-                email: pendingRegistration.email,
-                name: pendingRegistration.name,
-                profession: pendingRegistration.profession,
-                picture: null,
-                loginTime: new Date().toISOString()
-            };
-            
-            // Close modal FIRST
-            closeEmailConfirmModal();
-            
-            // Then login user and show app
-            currentUser = user;
-            localStorage.setItem('serenamente_current_user', JSON.stringify(user));
-            
-            // Show main app
-            showMainApp();
-            loadUserData();
-            
-            // Add activity and show success
-            addActivity(`Cadastro confirmado e login realizado: ${user.name}`);
-            
-            // Show success message after app is loaded
-            setTimeout(() => {
-                alert('✅ Código confirmado com sucesso!\n\n🎉 Bem-vindo ao SerenaMente Pro! Sua conta foi ativada e você já está no painel principal.');
-            }, 500);
-        }
-
-        function resendConfirmationCode() {
-            if (!pendingRegistration) {
-                alert('❌ Erro: Nenhum registro pendente.');
-                return;
-            }
-            
-            // Generate new code
-            generatedCode = Math.floor(100000 + Math.random() * 900000).toString();
-            
-            // Update displayed code immediately
-            document.getElementById('displayedCode').textContent = generatedCode;
-            document.getElementById('codeDisplay').classList.remove('hidden');
-            
-            // Show confirmation
-            alert(`🔄 NOVO CÓDIGO GERADO!\n\n🔑 Novo código: ${generatedCode}\n\n📝 O código foi atualizado na tela.\n\n(Em um sistema real, um novo email seria enviado)`);
-        }
-
-        function sendPasswordRecovery() {
-            const email = document.getElementById('forgotEmail').value.trim();
-            
-            // Detailed validation for password recovery
-            const errors = [];
-            
-            if (!email) {
-                errors.push('❌ EMAIL: Campo obrigatório não preenchido');
-            } else if (!isValidEmail(email)) {
-                errors.push('❌ EMAIL: Formato inválido (exemplo: nome@dominio.com)');
-            } else if (email.length < 5) {
-                errors.push('❌ EMAIL: Muito curto para ser válido');
-            }
-            
-            // Show errors if any
-            if (errors.length > 0) {
-                const errorMessage = '🚫 ERRO NA RECUPERAÇÃO:\n\n' + errors.join('\n\n') + '\n\n✅ Corrija o erro acima e tente novamente.';
-                alert(errorMessage);
+                alert('❌ Digite sua senha');
                 return;
             }
             
@@ -2775,13 +1351,287 @@
             const userData = localStorage.getItem(userKey);
             
             if (!userData) {
+                alert('❌ Email não encontrado! Clique em "Cadastro" para criar uma conta.');
+                return;
+            }
+            
+            let user;
+            try {
+                user = JSON.parse(userData);
+            } catch (error) {
+                alert('❌ Erro nos dados da conta. Tente cadastrar novamente.');
+                return;
+            }
+            
+            // Verify password
+            if (user.password !== btoa(password)) {
+                alert('❌ Senha incorreta! Clique em "Esqueceu a senha?" se necessário.');
+                return;
+            }
+            
+            // Create user session
+            const userSession = {
+                id: user.id,
+                email: user.email,
+                name: user.name,
+                profession: user.profession,
+                phone: user.phone,
+                institution: user.institution,
+                picture: null,
+                loginTime: new Date().toISOString()
+            };
+            
+            loginUser(userSession);
+        }
+
+        function handleRegistration() {
+            const name = document.getElementById('registerName').value.trim();
+            const email = document.getElementById('registerEmail').value.trim().toLowerCase();
+            const profession = document.getElementById('registerProfession').value;
+            const phone = document.getElementById('registerPhone').value.trim();
+            const institution = document.getElementById('registerInstitution').value.trim();
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const securityQuestion = document.getElementById('securityQuestion').value;
+            const securityAnswer = document.getElementById('securityAnswer').value.trim();
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            // Validation
+            const errors = [];
+            
+            if (!name) errors.push('❌ Nome é obrigatório');
+            else if (name.length < 3) errors.push('❌ Nome deve ter pelo menos 3 caracteres');
+            else if (name.split(' ').length < 2) errors.push('❌ Digite nome e sobrenome completos');
+            
+            if (!email) errors.push('❌ Email é obrigatório');
+            else if (!isValidEmail(email)) errors.push('❌ Email inválido');
+            
+            if (!profession) errors.push('❌ Profissão é obrigatória');
+            
+            if (!password) errors.push('❌ Senha é obrigatória');
+            else if (password.length < 8) errors.push('❌ Senha deve ter pelo menos 8 caracteres');
+            else if (!/[A-Z]/.test(password)) errors.push('❌ Senha deve conter pelo menos 1 letra maiúscula');
+            else if (!/[0-9]/.test(password)) errors.push('❌ Senha deve conter pelo menos 1 número');
+            else if (!/[^A-Za-z0-9]/.test(password)) errors.push('❌ Senha deve conter pelo menos 1 caractere especial');
+            
+            if (!confirmPassword) errors.push('❌ Confirmação de senha é obrigatória');
+            else if (password !== confirmPassword) errors.push('❌ Senhas não coincidem');
+            
+            if (!securityQuestion) errors.push('❌ Pergunta de segurança é obrigatória');
+            if (!securityAnswer) errors.push('❌ Resposta de segurança é obrigatória');
+            if (!agreeTerms) errors.push('❌ Você deve concordar com os termos');
+            
+            if (errors.length > 0) {
+                alert('🚫 ERROS NO CADASTRO:\n\n' + errors.join('\n'));
+                return;
+            }
+            
+            // Check if user already exists
+            const userKey = `serenamente_user_${btoa(email).replace(/[^a-zA-Z0-9]/g, '')}`;
+            const existingUser = localStorage.getItem(userKey);
+            
+            if (existingUser) {
+                alert('❌ Este email já está cadastrado! Use a aba "LOGIN" para entrar na sua conta.');
+                switchAuthTab('login');
+                document.getElementById('loginEmail').value = email;
+                return;
+            }
+            
+            // Create user
+            const userData = {
+                id: btoa(email).replace(/[^a-zA-Z0-9]/g, ''),
+                name: name,
+                email: email,
+                profession: profession,
+                phone: phone,
+                institution: institution,
+                password: btoa(password),
+                securityQuestion: securityQuestion,
+                securityAnswer: btoa(securityAnswer.toLowerCase()),
+                registrationDate: new Date().toISOString()
+            };
+            
+            // Save user
+            localStorage.setItem(userKey, JSON.stringify(userData));
+            
+            // Clear form
+            clearRegistrationForm();
+            
+            // Create session
+            const userSession = {
+                id: userData.id,
+                email: userData.email,
+                name: userData.name,
+                profession: userData.profession,
+                phone: userData.phone,
+                institution: userData.institution,
+                picture: null,
+                loginTime: new Date().toISOString()
+            };
+            
+            // Auto login
+            loginUser(userSession);
+            
+            alert(`✅ Cadastro realizado com sucesso! Bem-vindo(a), ${userSession.name}!`);
+        }
+
+        // Password recovery functions
+        function verifyEmailForRecovery() {
+            const email = document.getElementById('forgotEmail').value.trim().toLowerCase();
+            
+            if (!email) {
+                alert('❌ Digite seu email');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                alert('❌ Email inválido');
+                return;
+            }
+            
+            const userKey = `serenamente_user_${btoa(email).replace(/[^a-zA-Z0-9]/g, '')}`;
+            const userData = localStorage.getItem(userKey);
+            
+            if (!userData) {
                 alert('❌ Email não encontrado em nossa base de dados.');
                 return;
             }
             
-            // Simulate sending recovery email
-            alert(`📧 Instruções de recuperação enviadas para ${email}!\n\n(Em produção, um email real seria enviado com link seguro)`);
+            const user = JSON.parse(userData);
+            
+            if (!user.securityQuestion || !user.securityAnswer) {
+                alert('❌ Esta conta não possui pergunta de segurança configurada.');
+                return;
+            }
+            
+            recoveryUserData = user;
+            recoveryEmail = email;
+            
+            const questionTexts = {
+                'pet': 'Qual o nome do seu primeiro animal de estimação?',
+                'school': 'Qual o nome da sua primeira escola?',
+                'city': 'Em que cidade você nasceu?',
+                'mother': 'Qual o nome de solteira da sua mãe?',
+                'book': 'Qual seu livro favorito?',
+                'teacher': 'Qual o nome do seu professor favorito?'
+            };
+            
+            document.getElementById('displaySecurityQuestion').textContent = questionTexts[user.securityQuestion] || user.securityQuestion;
+            showForgotStep(2);
+        }
+
+        function verifySecurityAnswer() {
+            const answer = document.getElementById('securityAnswerInput').value.trim();
+            
+            if (!answer) {
+                alert('❌ Por favor, digite sua resposta.');
+                return;
+            }
+            
+            const normalizedAnswer = btoa(answer.toLowerCase());
+            
+            if (normalizedAnswer !== recoveryUserData.securityAnswer) {
+                alert('❌ Resposta incorreta. Tente novamente.');
+                return;
+            }
+            
+            showForgotStep(3);
+        }
+
+        function updatePassword() {
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+            
+            const errors = [];
+            
+            if (!newPassword) errors.push('❌ Nova senha é obrigatória');
+            else if (newPassword.length < 8) errors.push('❌ Nova senha deve ter pelo menos 8 caracteres');
+            else if (!/[A-Z]/.test(newPassword)) errors.push('❌ Nova senha deve conter pelo menos 1 letra maiúscula');
+            else if (!/[0-9]/.test(newPassword)) errors.push('❌ Nova senha deve conter pelo menos 1 número');
+            else if (!/[^A-Za-z0-9]/.test(newPassword)) errors.push('❌ Nova senha deve conter pelo menos 1 caractere especial');
+            
+            if (!confirmNewPassword) errors.push('❌ Confirmação é obrigatória');
+            else if (newPassword !== confirmNewPassword) errors.push('❌ Senhas não coincidem');
+            
+            if (errors.length > 0) {
+                alert('🚫 ERRO NA NOVA SENHA:\n\n' + errors.join('\n'));
+                return;
+            }
+            
+            recoveryUserData.password = btoa(newPassword);
+            const userKey = `serenamente_user_${recoveryUserData.id}`;
+            localStorage.setItem(userKey, JSON.stringify(recoveryUserData));
+            
+            showForgotStep(4);
+        }
+
+        function showForgotStep(step) {
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`forgotStep${i}`).classList.add('hidden');
+            }
+            document.getElementById(`forgotStep${step}`).classList.remove('hidden');
+        }
+
+        function resetForgotModal() {
+            recoveryUserData = null;
+            recoveryEmail = null;
+            
+            document.getElementById('forgotEmail').value = '';
+            document.getElementById('securityAnswerInput').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmNewPassword').value = '';
+            
+            showForgotStep(1);
+        }
+
+        function goToLoginFromRecovery() {
             closeForgotPasswordModal();
+            switchAuthTab('login');
+            
+            if (recoveryEmail) {
+                document.getElementById('loginEmail').value = recoveryEmail;
+            }
+            
+            alert('✅ Senha atualizada com sucesso! Agora você pode fazer login com sua nova senha.');
+        }
+
+        function closeForgotPasswordModal() {
+            document.getElementById('forgotPasswordModal').classList.add('hidden');
+            document.getElementById('forgotPasswordModal').classList.remove('flex');
+            resetForgotModal();
+        }
+
+        function checkNewPasswordStrength() {
+            const password = document.getElementById('newPassword').value;
+            const strengthDiv = document.getElementById('newPasswordStrength');
+            
+            let strength = 0;
+            let feedback = [];
+            
+            if (password.length >= 8) strength++;
+            else feedback.push('Mínimo 8 caracteres');
+            
+            if (/[A-Z]/.test(password)) strength++;
+            else feedback.push('Uma letra maiúscula');
+            
+            if (/[a-z]/.test(password)) strength++;
+            else feedback.push('Uma letra minúscula');
+            
+            if (/[0-9]/.test(password)) strength++;
+            else feedback.push('Um número');
+            
+            if (/[^A-Za-z0-9]/.test(password)) strength++;
+            else feedback.push('Um caractere especial');
+            
+            const colors = ['text-red-600', 'text-orange-600', 'text-yellow-600', 'text-blue-600', 'text-green-600'];
+            const labels = ['Muito Fraca', 'Fraca', 'Regular', 'Boa', 'Muito Forte'];
+            
+            strengthDiv.className = `mt-2 text-sm ${colors[strength]}`;
+            strengthDiv.textContent = `Força: ${labels[strength]}`;
+            
+            if (feedback.length > 0 && password.length > 0) {
+                strengthDiv.textContent += ` (Falta: ${feedback.join(', ')})`;
+            }
         }
 
         function isValidEmail(email) {
@@ -2789,142 +1639,28 @@
             return emailRegex.test(email);
         }
 
-        // Real-time validation functions
-        function validateNameField() {
-            const nameField = document.getElementById('registerName');
-            const name = nameField.value.trim();
+        function clearRegistrationForm() {
+            document.getElementById('registerName').value = '';
+            document.getElementById('registerEmail').value = '';
+            document.getElementById('registerProfession').value = '';
+            document.getElementById('registerPhone').value = '';
+            document.getElementById('registerInstitution').value = '';
+            document.getElementById('registerPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            document.getElementById('securityQuestion').value = '';
+            document.getElementById('securityAnswer').value = '';
+            document.getElementById('agreeTerms').checked = false;
             
-            // Remove previous error styling
-            nameField.classList.remove('border-red-500', 'border-green-500');
-            
-            if (!name) {
-                nameField.classList.add('border-red-500');
-                showFieldError(nameField, 'Nome é obrigatório');
-            } else if (name.length < 3) {
-                nameField.classList.add('border-red-500');
-                showFieldError(nameField, 'Nome deve ter pelo menos 3 caracteres');
-            } else if (name.split(' ').length < 2) {
-                nameField.classList.add('border-red-500');
-                showFieldError(nameField, 'Digite nome e sobrenome completos');
-            } else if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(name)) {
-                nameField.classList.add('border-red-500');
-                showFieldError(nameField, 'Nome deve conter apenas letras');
-            } else {
-                nameField.classList.add('border-green-500');
-                hideFieldError(nameField);
+            const strengthDiv = document.getElementById('passwordStrength');
+            if (strengthDiv) {
+                strengthDiv.textContent = '';
             }
         }
 
-        function validateEmailField() {
-            const emailField = document.getElementById('registerEmail');
-            const email = emailField.value.trim();
-            
-            // Remove previous error styling
-            emailField.classList.remove('border-red-500', 'border-green-500');
-            
-            if (!email) {
-                emailField.classList.add('border-red-500');
-                showFieldError(emailField, 'Email é obrigatório');
-            } else if (!isValidEmail(email)) {
-                emailField.classList.add('border-red-500');
-                showFieldError(emailField, 'Formato de email inválido');
-            } else {
-                emailField.classList.add('border-green-500');
-                hideFieldError(emailField);
-            }
+        function clearLoginForm() {
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
         }
-
-        function validateConfirmPasswordField() {
-            const confirmField = document.getElementById('confirmPassword');
-            const passwordField = document.getElementById('registerPassword');
-            const password = passwordField.value;
-            const confirmPassword = confirmField.value;
-            
-            // Remove previous error styling
-            confirmField.classList.remove('border-red-500', 'border-green-500');
-            
-            if (!confirmPassword) {
-                confirmField.classList.add('border-red-500');
-                showFieldError(confirmField, 'Confirmação de senha é obrigatória');
-            } else if (password !== confirmPassword) {
-                confirmField.classList.add('border-red-500');
-                showFieldError(confirmField, 'Senhas não coincidem');
-            } else if (password && confirmPassword) {
-                confirmField.classList.add('border-green-500');
-                hideFieldError(confirmField);
-            }
-        }
-
-        function validateLoginEmailField() {
-            const emailField = document.getElementById('loginEmail');
-            const email = emailField.value.trim();
-            
-            // Remove previous error styling
-            emailField.classList.remove('border-red-500', 'border-green-500');
-            
-            if (email && !isValidEmail(email)) {
-                emailField.classList.add('border-red-500');
-                showFieldError(emailField, 'Formato de email inválido');
-            } else if (email && isValidEmail(email)) {
-                emailField.classList.add('border-green-500');
-                hideFieldError(emailField);
-            }
-        }
-
-        function validateConfirmationCodeField() {
-            const codeField = document.getElementById('confirmationCode');
-            const code = codeField.value.trim();
-            
-            // Remove previous error styling
-            codeField.classList.remove('border-red-500', 'border-green-500');
-            
-            if (code && code.length === 6 && /^\d{6}$/.test(code)) {
-                codeField.classList.add('border-green-500');
-                hideFieldError(codeField);
-            } else if (code && (code.length !== 6 || !/^\d{6}$/.test(code))) {
-                codeField.classList.add('border-red-500');
-                showFieldError(codeField, 'Código deve ter 6 dígitos numéricos');
-            }
-        }
-
-        function showFieldError(field, message) {
-            // Remove existing error message
-            const existingError = field.parentNode.querySelector('.field-error');
-            if (existingError) {
-                existingError.remove();
-            }
-            
-            // Add new error message
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'field-error text-red-600 text-sm mt-1';
-            errorDiv.textContent = message;
-            field.parentNode.appendChild(errorDiv);
-        }
-
-        function hideFieldError(field) {
-            const existingError = field.parentNode.querySelector('.field-error');
-            if (existingError) {
-                existingError.remove();
-            }
-        }
-
-        function closeEmailConfirmModal() {
-            document.getElementById('emailConfirmModal').classList.add('hidden');
-            document.getElementById('emailConfirmModal').classList.remove('flex');
-            document.getElementById('confirmationCode').value = '';
-            document.getElementById('codeDisplay').classList.add('hidden');
-            document.getElementById('displayedCode').textContent = '';
-            generatedCode = null;
-            pendingRegistration = null;
-        }
-
-        function closeForgotPasswordModal() {
-            document.getElementById('forgotPasswordModal').classList.add('hidden');
-            document.getElementById('forgotPasswordModal').classList.remove('flex');
-            document.getElementById('forgotEmail').value = '';
-        }
-
-
 
         function loginUser(user) {
             currentUser = user;
@@ -2934,20 +1670,22 @@
             loadUserData();
             
             addActivity(`Login realizado: ${user.name}`);
-            alert(`✅ Bem-vindo(a), ${user.name}!`);
         }
 
         function logoutUser() {
-            if (confirm('🚪 Tem certeza que deseja sair? Seus dados ficarão salvos com segurança.')) {
-                // Clear current session
+            if (confirm('🚪 Tem certeza que deseja sair?')) {
                 currentUser = null;
                 currentProfile = null;
                 profiles = {};
                 assessments = {};
                 interventions = {};
                 
-                // Clear session storage (keep user data in localStorage with user ID)
                 localStorage.removeItem('serenamente_current_user');
+                
+                clearLoginForm();
+                clearRegistrationForm();
+                
+                switchAuthTab('login');
                 
                 showLoginScreen();
                 alert('✅ Logout realizado com sucesso!');
@@ -2967,7 +1705,6 @@
             document.getElementById('mainNav').classList.remove('hidden');
             document.getElementById('mainContent').classList.remove('hidden');
             
-            // Update user info in header
             if (currentUser) {
                 document.getElementById('userName').textContent = currentUser.name;
                 document.getElementById('userEmail').textContent = currentUser.email;
@@ -3020,30 +1757,17 @@
             document.getElementById('toggleRegisterPassword').addEventListener('click', () => togglePasswordVisibility('registerPassword'));
             document.getElementById('toggleConfirmPassword').addEventListener('click', () => togglePasswordVisibility('confirmPassword'));
 
-            // Password strength checker and real-time validation
+            // Password strength checker
             document.getElementById('registerPassword').addEventListener('input', checkPasswordStrength);
-            
-            // Real-time validation for registration fields
-            document.getElementById('registerName').addEventListener('blur', validateNameField);
-            document.getElementById('registerEmail').addEventListener('blur', validateEmailField);
-            document.getElementById('confirmPassword').addEventListener('blur', validateConfirmPasswordField);
-            
-            // Real-time validation for login fields
-            document.getElementById('loginEmail').addEventListener('blur', validateLoginEmailField);
-            
-            // Real-time validation for confirmation code
-            document.getElementById('confirmationCode').addEventListener('input', validateConfirmationCodeField);
 
             // Login button
             document.getElementById('emailLogin').addEventListener('click', (e) => {
-                console.log('🔄 Botão de login clicado!');
                 e.preventDefault();
                 handleLogin();
             });
 
             // Register button
             document.getElementById('registerUser').addEventListener('click', (e) => {
-                console.log('🔄 Botão de cadastro clicado!');
                 e.preventDefault();
                 handleRegistration();
             });
@@ -3066,15 +1790,21 @@
                 document.getElementById('forgotPasswordModal').classList.add('flex');
             });
 
-            // Email confirmation
-            document.getElementById('verifyCode').addEventListener('click', verifyEmailCode);
-            document.getElementById('resendCode').addEventListener('click', resendConfirmationCode);
-
             // Password recovery
-            document.getElementById('sendRecovery').addEventListener('click', sendPasswordRecovery);
+            document.getElementById('verifyEmailForRecovery').addEventListener('click', verifyEmailForRecovery);
+            document.getElementById('verifySecurityAnswer').addEventListener('click', verifySecurityAnswer);
+            document.getElementById('updatePassword').addEventListener('click', updatePassword);
+            document.getElementById('goToLogin').addEventListener('click', goToLoginFromRecovery);
+            document.getElementById('backToEmailStep').addEventListener('click', () => showForgotStep(1));
+            
+            // Password strength for recovery
+            document.getElementById('newPassword').addEventListener('input', checkNewPasswordStrength);
+            
+            // Password visibility toggles for recovery
+            document.getElementById('toggleNewPassword').addEventListener('click', () => togglePasswordVisibility('newPassword'));
+            document.getElementById('toggleConfirmNewPassword').addEventListener('click', () => togglePasswordVisibility('confirmNewPassword'));
 
             // Modal close buttons
-            document.getElementById('closeConfirmModal').addEventListener('click', closeEmailConfirmModal);
             document.getElementById('closeForgotModal').addEventListener('click', closeForgotPasswordModal);
 
             document.getElementById('logoutBtn').addEventListener('click', logoutUser);
@@ -3132,21 +1862,6 @@
             // Trigger buttons
             document.querySelectorAll('.trigger-btn').forEach(btn => {
                 btn.addEventListener('click', () => toggleTrigger(btn));
-            });
-
-            // Behavior buttons
-            document.querySelectorAll('.behavior-btn').forEach(btn => {
-                btn.addEventListener('click', () => toggleBehavior(btn));
-            });
-
-            // Strategy buttons
-            document.querySelectorAll('.strategy-btn').forEach(btn => {
-                btn.addEventListener('click', () => toggleStrategy(btn));
-            });
-
-            // Learning style buttons
-            document.querySelectorAll('.learning-style-btn').forEach(btn => {
-                btn.addEventListener('click', () => toggleLearningStyle(btn));
             });
 
             // Intensity slider
@@ -3236,45 +1951,6 @@
                 btn.classList.remove('bg-gray-100');
                 btn.classList.add('bg-blue-500', 'text-white');
             }
-        }
-
-        function toggleBehavior(btn) {
-            const behavior = btn.dataset.behavior;
-            if (selectedBehaviors.includes(behavior)) {
-                selectedBehaviors = selectedBehaviors.filter(b => b !== behavior);
-                btn.classList.remove('bg-red-500', 'text-white');
-                btn.classList.add('bg-red-50');
-            } else {
-                selectedBehaviors.push(behavior);
-                btn.classList.remove('bg-red-50');
-                btn.classList.add('bg-red-500', 'text-white');
-            }
-        }
-
-        function toggleStrategy(btn) {
-            const strategy = btn.dataset.strategy;
-            if (selectedStrategies.includes(strategy)) {
-                selectedStrategies = selectedStrategies.filter(s => s !== strategy);
-                btn.classList.remove('bg-indigo-500', 'text-white');
-                btn.classList.add('bg-blue-50');
-            } else {
-                selectedStrategies.push(strategy);
-                btn.classList.remove('bg-blue-50');
-                btn.classList.add('bg-indigo-500', 'text-white');
-            }
-        }
-
-        function toggleLearningStyle(btn) {
-            // Remove selection from all learning style buttons
-            document.querySelectorAll('.learning-style-btn').forEach(b => {
-                b.classList.remove('bg-indigo-500', 'text-white');
-                b.classList.add('bg-purple-50');
-            });
-            
-            // Select the clicked button
-            btn.classList.remove('bg-purple-50');
-            btn.classList.add('bg-indigo-500', 'text-white');
-            selectedLearningStyle = btn.dataset.learning;
         }
 
         function addNewProfile() {
@@ -3462,33 +2138,14 @@
                 type: 'cognitive',
                 date: new Date().toISOString().split('T')[0],
                 timestamp: new Date().toISOString(),
-                // Funções Executivas
                 cognitiveInhibition: document.getElementById('cognitiveInhibition').value,
                 cognitiveFlexibility: document.getElementById('cognitiveFlexibility').value,
                 cognitivePlanning: document.getElementById('cognitivePlanning').value,
                 cognitiveMonitoring: document.getElementById('cognitiveMonitoring').value,
-                // Sistemas de Memória
                 workingMemory: document.getElementById('workingMemory').value,
                 episodicMemory: document.getElementById('episodicMemory').value,
                 semanticMemory: document.getElementById('semanticMemory').value,
-                proceduralMemory: document.getElementById('proceduralMemory').value,
-                // Sistemas Atencionais
-                sustainedAttention: document.getElementById('sustainedAttention').value,
-                selectiveAttention: document.getElementById('selectiveAttention').value,
-                dividedAttention: document.getElementById('dividedAttention').value,
-                attentionalControl: document.getElementById('attentionalControl').value,
-                // Velocidade de Processamento
-                visualProcessing: document.getElementById('visualProcessing').value,
-                auditoryProcessing: document.getElementById('auditoryProcessing').value,
-                // Raciocínio
-                logicalReasoning: document.getElementById('logicalReasoning').value,
-                abstractReasoning: document.getElementById('abstractReasoning').value,
-                problemSolving: document.getElementById('problemSolving').value,
-                criticalThinking: document.getElementById('criticalThinking').value,
-                // Observações
-                cognitiveStrategies: document.getElementById('cognitiveStrategies').value,
-                cognitiveFatigue: document.getElementById('cognitiveFatigue').value,
-                cognitiveRecommendations: document.getElementById('cognitiveRecommendations').value
+                proceduralMemory: document.getElementById('proceduralMemory').value
             };
 
             if (!assessments[currentProfile]) {
@@ -3499,8 +2156,8 @@
             profiles[currentProfile].lastAssessment = new Date().toISOString();
             
             saveData();
-            addActivity(`Avaliação cognitiva completa registrada para ${profiles[currentProfile].name}`);
-            alert('✅ Avaliação cognitiva completa salva com sucesso!');
+            addActivity(`Avaliação cognitiva registrada para ${profiles[currentProfile].name}`);
+            alert('✅ Avaliação cognitiva salva com sucesso!');
             updateDashboard();
         }
 
@@ -3510,43 +2167,13 @@
                 return;
             }
 
-            // Coletar comportamentos selecionados
-            const selectedBehaviors = Array.from(document.querySelectorAll('.behavior-btn.bg-red-500')).map(btn => btn.dataset.behavior);
-            
-            // Coletar antecedentes
-            const selectedAntecedents = Array.from(document.querySelectorAll('.antecedent-check:checked')).map(cb => cb.value);
-            
-            // Coletar funções
-            const selectedFunctions = Array.from(document.querySelectorAll('.function-check:checked')).map(cb => cb.value);
-            
-            // Coletar estratégias
-            const selectedStrategies = Array.from(document.querySelectorAll('.strategy-btn.bg-indigo-500')).map(btn => btn.dataset.strategy);
-
             const assessment = {
                 id: Date.now().toString(),
                 type: 'behavioral',
                 date: new Date().toISOString().split('T')[0],
                 timestamp: new Date().toISOString(),
-                // Comportamentos Adaptativos
                 dailyLivingSkills: document.getElementById('dailyLivingSkills').value,
-                socialSkills: document.getElementById('socialSkills').value,
-                functionalCommunication: document.getElementById('functionalCommunication').value,
-                emotionalRegulation: document.getElementById('emotionalRegulation').value,
-                // Comportamentos Desafiadores
-                challengingBehaviors: selectedBehaviors,
-                behaviorFrequency: document.getElementById('behaviorFrequency').value,
-                behaviorIntensity: document.getElementById('behaviorIntensity').value,
-                behaviorDuration: document.getElementById('behaviorDuration').value,
-                // Análise Funcional
-                antecedents: selectedAntecedents,
-                behaviorFunctions: selectedFunctions,
-                // Estratégias
-                managementStrategies: selectedStrategies,
-                // Observações
-                behaviorPatterns: document.getElementById('behaviorPatterns').value,
-                riskProtectiveFactors: document.getElementById('riskProtectiveFactors').value,
-                effectiveStrategies: document.getElementById('effectiveStrategies').value,
-                behaviorInterventionPlan: document.getElementById('behaviorInterventionPlan').value
+                socialSkills: document.getElementById('socialSkills').value
             };
 
             if (!assessments[currentProfile]) {
@@ -3557,8 +2184,8 @@
             profiles[currentProfile].lastAssessment = new Date().toISOString();
             
             saveData();
-            addActivity(`Avaliação comportamental completa registrada para ${profiles[currentProfile].name}`);
-            alert('✅ Avaliação comportamental completa salva com sucesso!');
+            addActivity(`Avaliação comportamental registrada para ${profiles[currentProfile].name}`);
+            alert('✅ Avaliação comportamental salva com sucesso!');
             updateDashboard();
         }
 
@@ -3568,43 +2195,11 @@
                 return;
             }
 
-            // Coletar estilos de aprendizagem
-            const selectedLearningStyles = Array.from(document.querySelectorAll('.learning-style-btn.bg-indigo-500')).map(btn => btn.dataset.learning);
-            
-            // Coletar necessidades educacionais
-            const selectedEducationalNeeds = Array.from(document.querySelectorAll('.educational-need:checked')).map(cb => cb.value);
-
             const assessment = {
                 id: Date.now().toString(),
                 type: 'academic',
                 date: new Date().toISOString().split('T')[0],
-                timestamp: new Date().toISOString(),
-                // Habilidades de Leitura
-                readingDecoding: document.getElementById('readingDecoding').value,
-                readingFluency: document.getElementById('readingFluency').value,
-                readingComprehension: document.getElementById('readingComprehension').value,
-                vocabulary: document.getElementById('vocabulary').value,
-                // Habilidades de Escrita
-                graphomotor: document.getElementById('graphomotor').value,
-                spelling: document.getElementById('spelling').value,
-                textProduction: document.getElementById('textProduction').value,
-                textRevision: document.getElementById('textRevision').value,
-                // Habilidades Matemáticas
-                numericalConcepts: document.getElementById('numericalConcepts').value,
-                basicOperations: document.getElementById('basicOperations').value,
-                mathProblemSolving: document.getElementById('mathProblemSolving').value,
-                geometryMeasures: document.getElementById('geometryMeasures').value,
-                // Estilos de Aprendizagem
-                learningStyles: selectedLearningStyles,
-                academicMotivation: document.getElementById('academicMotivation').value,
-                taskPersistence: document.getElementById('taskPersistence').value,
-                // Necessidades Educacionais
-                educationalNeeds: selectedEducationalNeeds,
-                // Observações
-                academicStrengths: document.getElementById('academicStrengths').value,
-                academicDifficulties: document.getElementById('academicDifficulties').value,
-                effectivePedagogicalStrategies: document.getElementById('effectivePedagogicalStrategies').value,
-                academicDevelopmentPlan: document.getElementById('academicDevelopmentPlan').value
+                timestamp: new Date().toISOString()
             };
 
             if (!assessments[currentProfile]) {
@@ -3615,8 +2210,8 @@
             profiles[currentProfile].lastAssessment = new Date().toISOString();
             
             saveData();
-            addActivity(`Avaliação acadêmica completa registrada para ${profiles[currentProfile].name}`);
-            alert('✅ Avaliação acadêmica completa salva com sucesso!');
+            addActivity(`Avaliação acadêmica registrada para ${profiles[currentProfile].name}`);
+            alert('✅ Avaliação acadêmica salva com sucesso!');
             updateDashboard();
         }
 
@@ -3626,41 +2221,11 @@
                 return;
             }
 
-            // Coletar habilidades sociais
-            const selectedSocialSkills = Array.from(document.querySelectorAll('.social-skill:checked')).map(cb => cb.value);
-
             const assessment = {
                 id: Date.now().toString(),
                 type: 'social',
                 date: new Date().toISOString().split('T')[0],
-                timestamp: new Date().toISOString(),
-                // Habilidades de Comunicação Social
-                eyeContact: document.getElementById('eyeContact').value,
-                facialExpression: document.getElementById('facialExpression').value,
-                bodyLanguage: document.getElementById('bodyLanguage').value,
-                socialReciprocity: document.getElementById('socialReciprocity').value,
-                // Interação com Pares
-                socialInitiative: document.getElementById('socialInitiative').value,
-                friendshipMaintenance: document.getElementById('friendshipMaintenance').value,
-                groupCooperation: document.getElementById('groupCooperation').value,
-                conflictResolution: document.getElementById('conflictResolution').value,
-                // Competências Sociais
-                socialSkillsPresent: selectedSocialSkills,
-                // Contextos Sociais
-                schoolEnvironment: document.getElementById('schoolEnvironment').value,
-                familyEnvironment: document.getElementById('familyEnvironment').value,
-                communityEnvironment: document.getElementById('communityEnvironment').value,
-                newSituations: document.getElementById('newSituations').value,
-                // Teoria da Mente
-                perspectiveTaking: document.getElementById('perspectiveTaking').value,
-                socialCues: document.getElementById('socialCues').value,
-                intentionUnderstanding: document.getElementById('intentionUnderstanding').value,
-                humorIrony: document.getElementById('humorIrony').value,
-                // Observações
-                socialInteractionPatterns: document.getElementById('socialInteractionPatterns').value,
-                socialBarriers: document.getElementById('socialBarriers').value,
-                socialFacilitators: document.getElementById('socialFacilitators').value,
-                socialDevelopmentPlan: document.getElementById('socialDevelopmentPlan').value
+                timestamp: new Date().toISOString()
             };
 
             if (!assessments[currentProfile]) {
@@ -3671,8 +2236,8 @@
             profiles[currentProfile].lastAssessment = new Date().toISOString();
             
             saveData();
-            addActivity(`Avaliação social completa registrada para ${profiles[currentProfile].name}`);
-            alert('✅ Avaliação social completa salva com sucesso!');
+            addActivity(`Avaliação social registrada para ${profiles[currentProfile].name}`);
+            alert('✅ Avaliação social salva com sucesso!');
             updateDashboard();
         }
 
@@ -3682,42 +2247,11 @@
                 return;
             }
 
-            // Coletar estratégias de intervenção
-            const selectedInterventionStrategies = Array.from(document.querySelectorAll('.intervention-strategy:checked')).map(cb => cb.value);
-            
-            // Coletar recursos necessários
-            const selectedResourceNeeds = Array.from(document.querySelectorAll('.resource-need:checked')).map(cb => cb.value);
-            
-            // Coletar membros da equipe
-            const selectedTeamMembers = Array.from(document.querySelectorAll('.team-member:checked')).map(cb => cb.value);
-
             const intervention = {
                 id: Date.now().toString(),
                 date: new Date().toISOString().split('T')[0],
                 timestamp: new Date().toISOString(),
-                status: 'active',
-                // Objetivos
-                shortTermGoal: document.getElementById('shortTermGoal').value,
-                mediumTermGoal: document.getElementById('mediumTermGoal').value,
-                longTermGoal: document.getElementById('longTermGoal').value,
-                successCriteria: document.getElementById('successCriteria').value,
-                // Estratégias
-                interventionStrategies: selectedInterventionStrategies,
-                // Cronograma
-                sessionFrequency: document.getElementById('sessionFrequency').value,
-                sessionDuration: document.getElementById('sessionDuration').value,
-                serviceModality: document.getElementById('serviceModality').value,
-                reassessmentPeriod: document.getElementById('reassessmentPeriod').value,
-                // Recursos
-                resourceNeeds: selectedResourceNeeds,
-                // Equipe
-                teamMembers: selectedTeamMembers,
-                // Plano Detalhado
-                specificActivities: document.getElementById('specificActivities').value,
-                environmentalAdaptations: document.getElementById('environmentalAdaptations').value,
-                generalizationStrategies: document.getElementById('generalizationStrategies').value,
-                familyInvolvement: document.getElementById('familyInvolvement').value,
-                monitoringEvaluation: document.getElementById('monitoringEvaluation').value
+                status: 'active'
             };
 
             if (!interventions[currentProfile]) {
@@ -3727,8 +2261,8 @@
             interventions[currentProfile].push(intervention);
             
             saveData();
-            addActivity(`Plano de intervenção completo criado para ${profiles[currentProfile].name}`);
-            alert('✅ Plano de intervenção completo salvo com sucesso!');
+            addActivity(`Plano de intervenção criado para ${profiles[currentProfile].name}`);
+            alert('✅ Plano de intervenção salvo com sucesso!');
             updateDashboard();
         }
 
@@ -3764,7 +2298,7 @@
                 sum + patientInterventions.filter(intervention => intervention.status === 'active').length, 0);
             document.getElementById('activeInterventions').textContent = activeInterventionsCount;
             
-            // Calculate improvement rate (simplified)
+            // Calculate improvement rate
             const improvementRate = calculateImprovementRate();
             document.getElementById('improvementRate').textContent = improvementRate + '%';
 
@@ -3778,7 +2312,6 @@
             const patientAssessments = assessments[currentProfile];
             if (patientAssessments.length < 2) return 0;
             
-            // Simple calculation based on general assessments
             const generalAssessments = patientAssessments.filter(a => a.type === 'general');
             if (generalAssessments.length < 2) return 0;
             
@@ -3839,7 +2372,6 @@
                 timestamp: new Date().toISOString()
             });
             
-            // Keep only last 50 activities
             if (activities.length > 50) {
                 activities.splice(0, activities.length - 50);
             }
@@ -3902,15 +2434,15 @@
         }
 
         function renderReportsCharts() {
-            // Placeholder for reports charts
+            // Placeholder
         }
 
         function renderRecentAssessments() {
-            // Placeholder for recent assessments
+            // Placeholder
         }
 
         function renderProfileOptions() {
-            // This function can be used to populate dropdowns if needed
+            // Placeholder
         }
 
         function checkAlerts() {
@@ -3922,7 +2454,6 @@
             const patientAssessments = assessments[currentProfile] || [];
             const lastAssessment = patientAssessments[patientAssessments.length - 1];
             
-            // Check if last assessment was more than 7 days ago
             if (lastAssessment) {
                 const daysSinceLastAssessment = Math.floor((new Date() - new Date(lastAssessment.timestamp)) / (1000 * 60 * 60 * 24));
                 if (daysSinceLastAssessment > 7) {
@@ -3972,17 +2503,6 @@
             }
             
             const userKey = `serenamente_activities_${currentUser.id}`;
-            const data = {
-                user: {
-                    name: currentUser.name,
-                    email: currentUser.email
-                },
-                profiles: profiles,
-                assessments: assessments,
-                interventions: interventions,
-                activities: JSON.parse(localStorage.getItem(userKey) || '[]'),
-                exportDate: new Date().toISOString()
-            };
             
             const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -4078,5 +2598,5 @@
         window.selectProfile = selectProfile;
         window.deleteProfile = deleteProfile;
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98469c4937fa15e6',t:'MTc1ODc2MjI5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
